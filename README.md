@@ -20,20 +20,13 @@
 
 ## Showcase
 
-Lumina has been used to typeset lecture notes, theses, and course materials at TIFR Mumbai. Below are real cover pages from documents built with this theme.
+Lumina has been used to typeset several lecture note sets and a full MSc thesis at TIFR Mumbai:
 
-<table>
-<tr>
-<td align="center"><a href="https://github.com/sohamch08/Algorithms-CSS.201.1-TIFR-2024"><img src="images/cover-algorithms.png" width="220"></a><br><b>Algorithms</b><br><sub>CSS.201.1 · TIFR 2024</sub></td>
-<td align="center"><a href="https://github.com/sohamch08/msc-project-tifr"><img src="images/cover-msc.png" width="220"></a><br><b>Exponential Sums and Weil Bounds</b><br><sub>MSc Thesis · TIFR 2025</sub></td>
-<td align="center"><a href="https://github.com/sohamch08/academic-notes"><img src="images/cover-alco.png" width="220"></a><br><b>Algebra, Number Theory &amp; Computation</b><br><sub>CSS.307.1 · TIFR</sub></td>
-</tr>
-<tr>
-<td align="center"><a href="https://github.com/sohamch08/academic-notes"><img src="images/cover-agt.png" width="220"></a><br><b>Algorithmic Game Theory</b><br><sub>CSS.317.1 · TIFR</sub></td>
-<td align="center"><a href="https://github.com/sohamch08/academic-notes"><img src="images/cover-mfcs.png" width="220"></a><br><b>Mathematical Foundations of CS</b><br><sub>CSS.102.1 · TIFR</sub></td>
-<td align="center"><a href="https://github.com/sohamch08/academic-notes"><img src="images/cover-copt.png" width="220"></a><br><b>Combinatorial Optimization</b><br><sub>CSS.309.1 · TIFR</sub></td>
-</tr>
-</table>
+| Document | Repo |
+|---|---|
+| **Exponential Sums and Weil Bounds** — MSc project report | [![GitHub](https://img.shields.io/badge/msc--project--tifr-red?style=flat-square&logo=github)](https://github.com/sohamch08/msc-project-tifr) |
+| **Algorithms** (CSS.201.1) | [![GitHub](https://img.shields.io/badge/Algorithms--CSS.201.1-blue?style=flat-square&logo=github)](https://github.com/sohamch08/Algorithms-CSS.201.1-TIFR-2024) |
+| **Complexity, Coding Theory and more** | [![GitHub](https://img.shields.io/badge/Academic--Notes-blue?style=flat-square&logo=github)](https://github.com/sohamch08/Academic-Notes) |
 
 ---
 
@@ -73,7 +66,18 @@ The gradient cover is the most popular style — a full-page TikZ background wit
 \end{titlepage}
 ```
 
-Each document picks its own gradient pair for a unique identity.
+Different gradient colors give each document its own identity:
+
+<table width="100%">
+<tr>
+<td align="center"><img src="images/cover-algorithms.png" width="100%"><br><sub><b>Algorithms</b></sub></td>
+<td align="center"><img src="images/cover-coding-theory.png" width="100%"><br><sub><b>Topics in Coding Theory</b></sub></td>
+</tr>
+<tr>
+<td align="center"><img src="images/cover-mfcs.png" width="100%"><br><sub><b>Mathematical Foundations of CS</b></sub></td>
+<td align="center"><img src="images/cover-agt.png" width="100%"><br><sub><b>Algorithmic Game Theory</b></sub></td>
+</tr>
+</table>
 
 ---
 
