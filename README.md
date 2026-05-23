@@ -35,8 +35,11 @@ Lumina has been used to typeset several lecture note sets and a full MSc thesis 
 <td><b>Complexity, Coding Theory, and more</b></td>
 <td><a href="https://github.com/sohamch08/Academic-Notes"><img src="https://img.shields.io/badge/Academic--Notes-5E81AC?style=for-the-badge&logo=github&logoColor=white"></a></td>
 </tr>
+<tr>
+<td><b>Multivariable Analysis</b></td>
+<td><a href="https://github.com/sohamch08/multivariable-analysis-CMI"><img src="https://img.shields.io/badge/Multivariable--Analysis-5E81AC?style=for-the-badge&logo=github&logoColor=white"></a></td>
+</tr>
 </table>
-
 ---
 
 ## Title Page
