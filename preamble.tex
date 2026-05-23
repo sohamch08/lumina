@@ -195,7 +195,7 @@
 %================================
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=section]{Theorem}{Theorem}
+\newtcbtheorem[number within=section]{theorem}{Theorem}
 {%
 	enhanced,
 	breakable,
@@ -215,7 +215,7 @@
 {th}
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=chapter]{theorem}{Theorem}
+\newtcbtheorem[number within=chapter]{theoremCh}{Theorem}
 {%
 	enhanced,
 	breakable,
@@ -255,7 +255,7 @@
 % Corollery
 %================================
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[use counter from=Theorem, number within=section]{corolary}{Corollary}
+\newtcbtheorem[use counter from=theorem, number within=section]{corollary}{Corollary}
 {%
 	enhanced
 	,breakable
@@ -288,7 +288,7 @@
 }
 {th}
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[use counter from=Theorem, number within=chapter]{corollary}{Corollary}
+\newtcbtheorem[use counter from=theoremCh, number within=chapter]{corollaryCh}{Corollary}
 {%
 	enhanced
 	,breakable
@@ -312,7 +312,7 @@
 %================================
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[use counter from=Theorem, number within=section]{lemma}{Lemma}
+\newtcbtheorem[use counter from=theorem, number within=section]{lemma}{Lemma}
 {%
 	enhanced
 	,breakable
@@ -332,7 +332,7 @@
 {th}
 
 
-\newtcbtheorem[use counter from=theorem, number within=chapter]{Lemma}{Lemma}
+\newtcbtheorem[use counter from=theoremCh, number within=chapter]{lemmaCh}{Lemma}
 {%
 	enhanced
 	,breakable
@@ -376,7 +376,7 @@
 {th}
 
 
-\newtcbtheorem[number within=chapter]{Claim}{Claim}
+\newtcbtheorem[number within=chapter]{claimCh}{Claim}
 {%
 	enhanced
 	,breakable
@@ -399,7 +399,7 @@
 % EXAMPLE BOX
 %================================
 
-\newtcbtheorem[number within=section]{Example}{Example}
+\newtcbtheorem[number within=section]{example}{Example}
 {%
 	colback = myexamplebg
 	,breakable
@@ -416,7 +416,7 @@
 }
 {ex}
 
-\newtcbtheorem[number within=chapter]{example}{Example}
+\newtcbtheorem[number within=chapter]{exampleCh}{Example}
 {%
 	colback = myexamplebg
 	,breakable
@@ -437,7 +437,7 @@
 % DEFINITION BOX
 %================================
 
-\newtcbtheorem[number within=section]{Definition}{Definition}{enhanced,
+\newtcbtheorem[number within=section]{definition}{Definition}{enhanced,
 	before skip=2mm,after skip=2mm, colback=red!5,colframe=red!80!black,boxrule=0.5mm,
 	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,colbacktitle=red!75!black,
 	boxed title style={frame code={
@@ -459,7 +459,7 @@
 	before upper=\noindent\setlength{\parindent}{1.5em},
 	fontupper=\itshape,
 	title={#2},#1}{def}
-\newtcbtheorem[number within=chapter]{definition}{Definition}{enhanced,
+\newtcbtheorem[number within=chapter]{definitionCh}{Definition}{enhanced,
 	before skip=2mm,after skip=2mm, colback=red!5,colframe=red!80!black,boxrule=0.5mm,
 	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm, colbacktitle=red!75!black,
 	boxed title style={frame code={
@@ -487,7 +487,7 @@
 % OPEN QUESTION BOX
 %================================
 
-\newtcbtheorem[number within=section]{open}{Open Question}{enhanced,
+\newtcbtheorem[number within=section]{openq}{Open Question}{enhanced,
 	before skip=2mm,after skip=2mm, colback=myp!5,colframe=myp!80!black,boxrule=0.5mm,
 	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm, colbacktitle=myp!75!black,
 	boxed title style={frame code={
@@ -509,7 +509,7 @@
 	before upper=\noindent\setlength{\parindent}{1.5em},
 	fontupper=\itshape,
 	title={#2},#1}{def}
-\newtcbtheorem[number within=chapter]{Open}{Open Question}{enhanced,
+\newtcbtheorem[number within=chapter]{openqCh}{Open Question}{enhanced,
 	before skip=2mm,after skip=2mm, colback=myp!5,colframe=myp!80!black,boxrule=0.5mm,
 	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm, colbacktitle=myp!75!black,
 	boxed title style={frame code={
@@ -702,22 +702,22 @@
 
 
 
-\newcommand{\thm}[3][]{\begin{Theorem}{#2}{#1}#3\end{Theorem}}
-\newcommand{\thmc}[3][]{\begin{theorem}{#2}{#1}#3\end{theorem}}
-\newcommand{\cor}[3][]{\begin{corolary}{#2}{#1}#3\end{corolary}}
-\newcommand{\corc}[3][]{\begin{corollary}{#2}{#1}#3\end{corollary}}
+\newcommand{\thm}[3][]{\begin{theorem}{#2}{#1}#3\end{theorem}}
+\newcommand{\thmc}[3][]{\begin{theoremCh}{#2}{#1}#3\end{theoremCh}}
+\newcommand{\cor}[3][]{\begin{corollary}{#2}{#1}#3\end{corollary}}
+\newcommand{\corc}[3][]{\begin{corollaryCh}{#2}{#1}#3\end{corollaryCh}}
 \newcommand{\lem}[3][]{\begin{lemma}{#2}{#1}#3\end{lemma}}
-\newcommand{\lemc}[3][]{\begin{Lemma}{#2}{#1}#3\end{Lemma}}
+\newcommand{\lemc}[3][]{\begin{lemmaCh}{#2}{#1}#3\end{lemmaCh}}
 \newcommand{\clm}[3][]{\begin{claim}{#2}{#1}#3\end{claim}}
-\newcommand{\clmc}[3][]{\begin{Claim}{#2}{#1}#3\end{Claim}}
+\newcommand{\clmc}[3][]{\begin{claimCh}{#2}{#1}#3\end{claimCh}}
 \newcommand{\wc}[3][]{\begin{wconc}{#2}{#1}\setlength{\parindent}{1cm}#3\end{wconc}}
 \newcommand{\thmcon}[1]{\begin{Theoremcon}{#1}\end{Theoremcon}}
-\newcommand{\ex}[3][]{\begin{Example}{#2}{#1}#3\end{Example}}
-\newcommand{\exc}[3][]{\begin{example}{#2}{#1}#3\end{example}}
-\newcommand{\dfn}[3][]{\begin{Definition}{#2}{#1}#3\end{Definition}}
-\newcommand{\dfnc}[3][]{\begin{definition}{#2}{#1}#3\end{definition}}
-\newcommand{\opn}[3][]{\begin{open}{#2}{#1}#3\end{open}}
-\newcommand{\opnc}[3][]{\begin{Open}{#2}{#1}#3\end{Open}}
+\newcommand{\ex}[3][]{\begin{example}{#2}{#1}#3\end{example}}
+\newcommand{\exc}[3][]{\begin{exampleCh}{#2}{#1}#3\end{exampleCh}}
+\newcommand{\dfn}[3][]{\begin{definition}{#2}{#1}#3\end{definition}}
+\newcommand{\dfnc}[3][]{\begin{definitionCh}{#2}{#1}#3\end{definitionCh}}
+\newcommand{\opn}[3][]{\begin{openq}{#2}{#1}#3\end{openq}}
+\newcommand{\opnc}[3][]{\begin{openqCh}{#2}{#1}#3\end{openqCh}}
 \newcommand{\pr}[3][]{\begin{problem}{#2}{#1}#3\end{problem}}
 \newcommand{\qs}[3][]{\begin{question}{#2}{#1}#3\end{question}}
 
