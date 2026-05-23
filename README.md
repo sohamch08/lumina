@@ -20,19 +20,26 @@
 
 ## Showcase
 
-Lumina has been used to typeset several lecture note sets and a full MSc thesis at TIFR Mumbai:
+Lumina has been used to typeset lecture notes, theses, and course materials at TIFR Mumbai. Below are real cover pages from documents built with this theme.
 
-| Document | Repo |
-|---|---|
-| **Exponential Sums and Weil Bounds** — MSc project report | [![PDF](https://img.shields.io/badge/msc--project--tifr-red?style=flat-square&logo=github)](https://github.com/sohamch08/msc-project-tifr) |
-| **Topics in Coding Theory** (CSS.413.1) | [![PDF](https://img.shields.io/badge/Topics--in--Coding--Theory-red?style=flat-square&logo=github)](https://github.com/sohamch08/Topics-in-Coding-Theory-CSS.413.1-TIFR-2025) |
-| **Algorithms, Complexity, and more** | [![PDF](https://img.shields.io/badge/Academic--Notes-blue?style=flat-square&logo=github)](https://github.com/sohamch08/Academic-Notes) |
+<table>
+<tr>
+<td align="center"><a href="https://github.com/sohamch08/Algorithms-CSS.201.1-TIFR-2024"><img src="images/cover-algorithms.png" width="220"></a><br><b>Algorithms</b><br><sub>CSS.201.1 · TIFR 2024</sub></td>
+<td align="center"><a href="https://github.com/sohamch08/msc-project-tifr"><img src="images/cover-msc.png" width="220"></a><br><b>Exponential Sums and Weil Bounds</b><br><sub>MSc Thesis · TIFR 2025</sub></td>
+<td align="center"><a href="https://github.com/sohamch08/academic-notes"><img src="images/cover-alco.png" width="220"></a><br><b>Algebra, Number Theory &amp; Computation</b><br><sub>CSS.307.1 · TIFR</sub></td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/sohamch08/academic-notes"><img src="images/cover-agt.png" width="220"></a><br><b>Algorithmic Game Theory</b><br><sub>CSS.317.1 · TIFR</sub></td>
+<td align="center"><a href="https://github.com/sohamch08/academic-notes"><img src="images/cover-mfcs.png" width="220"></a><br><b>Mathematical Foundations of CS</b><br><sub>CSS.102.1 · TIFR</sub></td>
+<td align="center"><a href="https://github.com/sohamch08/academic-notes"><img src="images/cover-copt.png" width="220"></a><br><b>Combinatorial Optimization</b><br><sub>CSS.309.1 · TIFR</sub></td>
+</tr>
+</table>
 
 ---
 
 ## Title Page
 
-The theme ships `\mytitlea` (orange geometric) and `\mytitleb` (diagonal bands) as built-ins, but in practice a full-page gradient title is popular. Define `\titre` in your main `.tex` file and call it inside `\begin{titlepage}`:
+The gradient cover is the most popular style — a full-page TikZ background with a centered title block. Define `\titre` in your main `.tex` file and call it inside `\begin{titlepage}`:
 
 ```tex
 \definecolor{mycolor1}{HTML}{E64C4C}  % top gradient color
@@ -66,9 +73,7 @@ The theme ships `\mytitlea` (orange geometric) and `\mytitleb` (diagonal bands) 
 \end{titlepage}
 ```
 
-Different gradient colors give each document its own identity:
-
-<img width="49%" src="images/title-gradient-red.png"> <img width="49%" src="images/title-gradient-blue.png">
+Each document picks its own gradient pair for a unique identity.
 
 ---
 
