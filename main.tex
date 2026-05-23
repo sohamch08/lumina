@@ -2,26 +2,100 @@
 \input{preamble}
 \input{macros}
 \input{letterfonts}
-\begin{document}
+\definecolor{mycolor1}{HTML}{1becff}
+\definecolor{mycolor2}{HTML}{2E3192}
+
+
+\newcommand*{\titre}[1]{\begingroup
+	\newlength{\drop}
+	\setlength{\drop}{0.1\textheight}
+	\centering
+	\settowidth{\unitlength}{\Huge\scshape La matiere et fsdfdsf\hspace{3pt}-temps}
+	\vspace*{\baselineskip}
+	\rule{\unitlength}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+	\rule{\unitlength}{0.4pt}\\[\baselineskip]
+	{\Huge\scshape\color{white} #1}\\[\baselineskip]
+	{\large\itshape TIFR 2024, Aug-Nov}\\[0.2\baselineskip]
+	\rule{\unitlength}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+	\rule{\unitlength}{1.6pt}\\[4\baselineskip]
+	{\Large\scshape Scribe: Soham Chatterjee\\[10mm] soham.chatterjee@tifr.res.in \\[2mm] Website: \colorlink{black}{https://sohamch08.github.io/}{sohamch08.github.io} }\par
+	\vfill
+	% {\large\scshape\color{white} 2024}\par
+	\endgroup}
 	
-	\thispagestyle{empty}
-	\mytitleb{Title Here}{Soham Chatterjee}{sohamchatterjee999@gmail.com}{2021}
-	\newpage% or \cleardoublepage
+
+
+
+
+
+
+\usepackage{xhfill}
+
+\usetikzlibrary{calc} 
+
+\titleformat{\chapter}[display]
+{}
+{\hfill \tikz[remember picture] \node[] (nr) {\fontsize{20}{70}\selectfont\color{mytoccolor}\textsc{Chapter~~} \fontsize{60}{70}\selectfont\color{mytoccolor}\thechapter};
+	\begin{tikzpicture}[overlay,remember picture]
+		\coordinate (rightborder) at ($(nr)+(100,0)$);
+		\coordinate (right) at ($(nr.east) + (0.5,0)$);
+		\draw[line width=4.5em] (right) -- (rightborder);
+\end{tikzpicture}}
+{-1ex}
+{\filleft\fontsize{30}{50}\selectfont}
+[\vspace{-1ex}]
+
+
+\usetikzlibrary{arrows.meta, automata, calc,bending,positioning, quotes,
+	overlay-beamer-styles}
+
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+\pagestyle{plain}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\thispagestyle{empty}
+
+
+
+\begin{titlepage}
+
+	\begin{tikzpicture}[remember picture,overlay]
+		\node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[minimum width=\paperwidth,minimum height=\paperheight,top color=mycolor1,bottom color=mycolor2]{};
+	\end{tikzpicture}\\[3\baselineskip]
+
+	\titre{CSS.201.1 Algorithms}
+\end{titlepage}
+
+
+
+\newpage
+
+
+\newpage
+\titleformat{name=\chapter,numberless}[display]
+{\normalfont\Huge\bfseries}{}{0pt}{\Huge}
+{\hypersetup{linkcolor=mytoccolor}
 	\tableofcontents
-	\chapter{First Chapter}
-	\section{Section 1}
-	\dfn{Definition Topic}{Definition Statement}
-	\thm{Theorem Name}{Theorem Statement}
-	\cor[cori]{Corollary Name}{Corollary Statement}
-	\lem{Lemma Name}{Lemma Statement}
-	\clm{Claim Name}{Claim Statement}
-	\ex{Example Name}{Example explained}
+}
+\clearpage
+\pagestyle{fancy}
+
+\chapter{First Chapter}
+\section{Section 1}
+\dfn{Definition Topic}{Definition Statement}
+\thm{Theorem Name}{Theorem Statement}
+\cor[cori]{Corollary Name}{Corollary Statement}
+\lem{Lemma Name}{Lemma Statement}
+\clm{Claim Name}{Claim Statement}
+\ex{Example Name}{Example explained}
 \opn{Open Question Name}{Question Statement}
 \qs{Question Name}{Question Statement}
 \nt{Special Note}
 \wc{Wrong Concept topic}{Explanation}
-\pf{Proof}{Proof}
-	
 \chapter{Second Chapter}
 \section{Section 1}
 \end{document}
