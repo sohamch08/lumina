@@ -776,6 +776,28 @@
 	}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE FORMATS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\titleformat{\chapter}[display]
+{}
+{\hfill \tikz[remember picture] \node[] (nr) {\fontsize{20}{70}\selectfont\color{mytoccolor}\textsc{Chapter~~} \fontsize{60}{70}\selectfont\color{mytoccolor}\thechapter};
+	\begin{tikzpicture}[overlay,remember picture]
+		\coordinate (rightborder) at ($(nr)+(100,0)$);
+		\coordinate (right) at ($(nr.east) + (0.5,0)$);
+		\draw[line width=4.5em] (right) -- (rightborder);
+\end{tikzpicture}}
+{-1ex}
+{\filleft\fontsize{30}{50}\selectfont}
+[\vspace{-1ex}]
+
+\titleformat{\section}
+	{\normalfont\Large\bfseries}
+	{\S\hspace{0.25em}\thesection}
+	{1em}
+	{}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TABLE OF CONTENTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
