@@ -70,12 +70,10 @@ Different gradient colors give each document its own identity:
 
 <table width="100%">
 <tr>
-<td align="center"><img src="images/cover-algorithms.png" width="100%"><br><sub><b>Algorithms</b></sub></td>
-<td align="center"><img src="images/cover-coding-theory.png" width="100%"><br><sub><b>Topics in Coding Theory</b></sub></td>
-</tr>
-<tr>
-<td align="center"><img src="images/cover-mfcs.png" width="100%"><br><sub><b>Mathematical Foundations of CS</b></sub></td>
-<td align="center"><img src="images/cover-agt.png" width="100%"><br><sub><b>Algorithmic Game Theory</b></sub></td>
+<td align="center" width="25%"><img src="images/cover-algorithms.png" width="100%"><br><sub><b>Algorithms</b></sub></td>
+<td align="center" width="25%"><img src="images/cover-coding-theory.png" width="100%"><br><sub><b>Topics in Coding Theory</b></sub></td>
+<td align="center" width="25%"><img src="images/cover-mfcs.png" width="100%"><br><sub><b>Mathematical Foundations of CS</b></sub></td>
+<td align="center" width="25%"><img src="images/cover-agt.png" width="100%"><br><sub><b>Algorithmic Game Theory</b></sub></td>
 </tr>
 </table>
 
