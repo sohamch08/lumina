@@ -54,7 +54,7 @@
 \fancypagestyle{plain}{%
 	\renewcommand{\headrulewidth}{0pt}%
 	\fancyhf{}%
-	% \fancyfoot[C]{\textcolor{\gitinfonotecolour}{\gitinfonote}}%
+	\fancyfoot[C]{\textcolor{\gitinfonotecolour}{\gitinfonote}}%
 }
 \fancypagestyle{fancy}{
 	\fancyhead{}
@@ -63,7 +63,7 @@
 	\fancyhead[RO]{\itshape\textsc\leftmark}
 	\fancyfoot{}
 	\fancyhead[RE,LO]{\itshape Page \thepage}
-	% \fancyfoot[C]{\textcolor{\gitinfonotecolour}{\gitinfonote}}%
+	\fancyfoot[C]{\textcolor{\gitinfonotecolour}{\gitinfonote}}%
 }
 \pagestyle{fancy}
 \makeatletter
@@ -118,6 +118,13 @@
 \definecolor{Emerald}{HTML}{00A99D}
 \definecolor{RoyalBlue}{HTML}{0071BC}
 \definecolor{mytoccolor}{HTML}{4549C4}
+
+\renewcommand{\qed}{\ensuremath{\blacksquare}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GIT INFO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \definecolor{gitaccent}{RGB}{100,180,255}
 \definecolor{gitdim}{RGB}{130,130,145}
 \definecolor{gitmid}{RGB}{170,170,190}
@@ -128,11 +135,14 @@
 	\textcolor{mytheoremfr!80!white}{$\mid$}%
 }
 
+% Override \gitrepo in your document preamble for a different repo link
+\newcommand{\gitrepo}{sohamch08/lumina}
+
 \newcommand{\gitinfonote}{%
 	\texttt{\footnotesize%
 		\textcolor{gitaccent}{\normalfont}\,%
-		\href{https://github.com/sohamch08/lumina}{%
-			\textcolor{mytheoremfr!80!white}{\faGithub\,\texttt{\textup{sohamch08/lumina}}}%
+		\href{https://github.com/\gitrepo}{%
+			\textcolor{mytheoremfr!80!white}{\faGithub\,\texttt{\textup{\gitrepo}}}%
 		}%
 		\;\gitsep\;%
 		\textcolor{myr!80!white}{\normalfont\faGit*}\,%
@@ -142,8 +152,6 @@
 		\textcolor{gitdim}{\texttt{\gitAuthorIsoDate}}%
 	}%
 }
-
-\renewcommand{\qed}{\ensuremath{\blacksquare}}
 
 \providecommand*{\Autoref}[1]{%
 	\begingroup
