@@ -95,19 +95,19 @@ Different gradient colors give each document its own identity:
 
 Color-coded boxes for every mathematical environment. Theorem body text is set in italic by default.
 
-| Environment | Color | Short command | Long Command |
+| Environment | Color | Section variant | Chapter variant |
 |---|---|---|---|
-| Theorem | Blue | `\thm[ref]{Title}{Body}` | `\begin{theorem}{Title}{ref}Body\end{theorem}` |
-| Lemma | Green | `\lem[ref]{Title}{Body}` | `\begin{Lemma}{Title}{ref}Body\end{Lemma}` |
-| Claim | Green | `\clm[ref]{Title}{Body}` | `\begin{claim}{Title}{ref}Body\end{claim}` |
-| Corollary | Purple | `\cor[ref]{Title}{Body}` | `\begin{corolary}{Title}{ref}Body\end{corolary}` |
-| Definition | Red | `\dfn[ref]{Title}{Body}` | `\begin{Definition}{Title}{ref}Body\end{Definition}` |
-| Example | Teal | `\ex[ref]{Title}{Body}` | `\begin{example}{Title}{ref}Body\end{example}` |
-| Open Question | Purple | `\opn[ref]{Title}{Body}` | `\begin{open}{Title}{ref}Body\end{open}` |
+| Theorem | Blue | `\thm[ref]{Title}{Body}` · `theorem` | `\thmc[ref]{Title}{Body}` · `theoremCh` |
+| Lemma | Green | `\lem[ref]{Title}{Body}` · `lemma` | `\lemc[ref]{Title}{Body}` · `lemmaCh` |
+| Claim | Green | `\clm[ref]{Title}{Body}` · `claim` | `\clmc[ref]{Title}{Body}` · `claimCh` |
+| Corollary | Purple | `\cor[ref]{Title}{Body}` · `corollary` | `\corc[ref]{Title}{Body}` · `corollaryCh` |
+| Definition | Red | `\dfn[ref]{Title}{Body}` · `definition` | `\dfnc[ref]{Title}{Body}` · `definitionCh` |
+| Example | Teal | `\ex[ref]{Title}{Body}` · `example` | `\exc[ref]{Title}{Body}` · `exampleCh` |
+| Open Question | Purple | `\opn[ref]{Title}{Body}` · `openq` | `\opnc[ref]{Title}{Body}` · `openqCh` |
 
 <img width="100%" src="images/theorem boxes.png">
 
-Each environment has two variants: numbered within **sections** (lowercase, e.g. `lemma`) and within **chapters** (capitalized, e.g. `Lemma`). Short commands use the section variant; append `c` for the chapter variant (`\lemc`, `\corc`, `\thmc`, …).
+Section variants are numbered within sections (`theorem`, `lemma`, …); chapter variants within chapters (`theoremCh`, `lemmaCh`, …). The short commands follow the same pattern — append `c` for the chapter variant (`\thmc`, `\lemc`, `\corc`, …).
 
 ---
 
