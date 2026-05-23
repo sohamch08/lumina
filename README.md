@@ -1,143 +1,145 @@
-# Lumina Theme
-**Lumina** is an eye-candy LaTeX theme for lecture notes, reports, and thesis writing. If you want to check an actual example using Lumina, take a look at my [Analysis Lecture Notes](analysis_class-note.pdf). If you want to just view some pages, here are some previews.
+<div align="center">
 
-<img width=100% src="images/preview-1.png">
-<img width=100% src="images/preview-2.png">
+# ✦ Lumina
 
+**An eye-candy LaTeX theme for lecture notes, reports, and theses**
 
-## Title Page
-There are two custom title pages. I have named them `\mytitlea` and `\mytitleb`. Among them I have used the `\mytitleb` in the analysis lecture notes.
+[![License](https://img.shields.io/github/license/sohamch08/lumina?style=for-the-badge&color=5E81AC)](LICENSE)
+[![LaTeX](https://img.shields.io/badge/LaTeX-pdfLaTeX-008080?style=for-the-badge&logo=latex&logoColor=white)](https://www.latex-project.org/)
+[![Stars](https://img.shields.io/github/stars/sohamch08/lumina?style=for-the-badge&color=EBCB8B)](https://github.com/sohamch08/lumina/stargazers)
 
-<img  width=100% src="images/title-1.png">
-<img  width=100% src="images/title-2.png">
+</div>
 
-The command goes like this
-```tex
-\mytitleb{Title}{Author}{Email}{Year}
-```
->- Use this command inside the `\begin{document}`.
->- Do not use the usual `\maketitle` process here ie you first wrote the `title{}` `\author{}` and `\date{}` then inside the `\begin{document}`, `\maketitle`.
->- I would recommend first add `\thispagestyle{empty}` to make the title page without pagenumber. And after the `\mytitleb` command add a `\newpage` to make a forcefull page break.
+---
 
-So the whole command block looks like this
+## Previews
+
+<img width="49%" src="images/preview-1.png"> <img width="49%" src="images/preview-2.png">
+
+---
+
+## Showcase
+
+Lumina was used to typeset my MSc project report at TIFR, Mumbai:
+
+> **[Exponential Sums and Weil Bounds](https://github.com/sohamch08/msc-project-tifr)** — a survey of character sum theory, elementary proofs of the Weil bounds, and Kopparty's decoding algorithms for codes constructed from character evaluations.
+
+[![MSc Project](https://img.shields.io/badge/MSc%20Project-TIFR%20Mumbai-2D4889?style=for-the-badge&logo=latex&logoColor=white)](https://github.com/sohamch08/msc-project-tifr)
+[![PDF](https://img.shields.io/badge/PDF-View%20Report-red?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://github.com/sohamch08/msc-project-tifr/blob/master/msc-project.pdf)
+
+---
+
+## Title Pages
+
+Two custom title pages — `\mytitlea` (orange geometric) and `\mytitleb` (diagonal bands):
+
+<img width="49%" src="images/title-1.png"> <img width="49%" src="images/title-2.png">
+
 ```tex
 \begin{document}
-	
 \thispagestyle{empty}
-\mytitleb{Title Here}{Soham Chatterjee}{sohamchatterjee999@gmail.com}{2021}
+\mytitleb{Title Here}{Soham Chatterjee}{sohamchatterjee999@gmail.com}{2024}
 \newpage
-...
-Put your content here
 ...
 \end{document}
 ```
 
-## Theorem Boxes
-I have many theorem boxes for Theorems, Corollaries, Lemmas, Claims, Definitions, Examples, Questions etc.
+> `\mytitleb{Title}{Author}{Email}{Year}` — use inside `\begin{document}`, before `\maketitle`. Add `\thispagestyle{empty}` and `\newpage` around it.
 
-<img  width=100% src="images/theorem%20boxes.png"> 
+---
 
-The environments which are appears in pairs one of them is for the chapters which have sections whose environment name starts with small letter and the other is for chapters which do not have sections whose environment name starts with capital letter. In the short command for the latter I used the letter 'c' to represent it should be use if it is not under a section
+## Theorem Environments
 
-Short commands for environments goes like this
-```tex
-\commandName[reference_name]{heading}{description}
-```
-For example in theorem for suppose Fundamental Theorem of Calculus i will write like this
-```tex
-\thm[ftc]{Fundamental Theorem of Calculus}{Theorem Statement}
-```
-## Referencing Theorems
-Take the code for the `Theorem` box
-```tex
-\tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=section]{Theorem}{Theorem}
-{%
-	enhanced,
-	breakable,
-	colback = mytheorembg,
-	frame hidden,
-	boxrule = 0sp,
-	borderline west = {2pt}{0pt}{mytheoremfr},
-	sharp corners,
-	detach title,
-	before upper = \tcbtitle\par\smallskip,
-	coltitle = mytheoremfr,
-	fonttitle = \bfseries\sffamily,
-	description font = \mdseries,
-	separator sign none,
-	segmentation style={solid, mytheoremfr},
-}
-{th}
-```
-Here take the last `{th}` term in mind cause this will be used in referencing. Suppose a use case of theorem
+Color-coded boxes for every mathematical environment:
+
+| Environment | Color | Short command |
+|---|---|---|
+| Theorem | Blue | `\thm[ref]{Title}{Body}` |
+| Lemma | Green | `\lem[ref]{Title}{Body}` |
+| Claim | Green | `\clm[ref]{Title}{Body}` |
+| Corollary | Purple | `\cor[ref]{Title}{Body}` |
+| Definition | Red | `\dfn[ref]{Title}{Body}` |
+| Example | Teal | `\ex[ref]{Title}{Body}` |
+| Open Question | Purple | `\opn[ref]{Title}{Body}` |
+
+<img width="100%" src="images/theorem%20boxes.png">
+
+Each environment has **two variants**: one numbered within sections (lowercase name, e.g. `lemma`) and one numbered within chapters (capitalized name, e.g. `Lemma`). The short commands above use the section variant by default; append `c` for the chapter variant (`\lemc`, `\corc`, `\thmc`, …).
+
+---
+
+## Referencing
+
+Every environment produces a label prefixed by its type. Pass the ref name as the optional `[ref]` argument:
 
 ```tex
-\begin{Theorem}{title}{refer}
-  Theroem Statement
-	...
-\end{Theorem}
+\thm[ftc]{Fundamental Theorem of Calculus}{Statement here.}
+% refer elsewhere as: \ref{th:ftc}
+% or with custom text: \hyperref[th:ftc]{Theorem \ref{th:ftc}}
 ```
-To refer this in another place use the command `\ref{th:refer}`. This will put `(1.1.1)` type of text with a link to that theorem in your document. To use custom text for example I want to put `Theorem 1.1.1` and then use the command
+
+| Environment | Prefix |
+|---|---|
+| Theorem / Claim / Lemma / Corollary | `th:` |
+| Definition / Exercise / Open Question | `def:` |
+| Example | `ex:` |
+| Question | `qs:` |
+
+---
+
+## Proof Environments
+
+The proof environment is multipurpose — use the first argument to name what you're writing:
 
 ```tex
-\hyperref[th:refer]{Theorem \ref{th:refer}}
-```
-This will do the work. This process will work for all the theorem boxes I have defined. Here are the terms to be used in each type of theorem boxes
-
-```
-Theorem:		th
-Claim:			th
-Lemma:			th
-Corollary:		th
-Definition:		def
-Example:		ex
-Question:		qs
-Exercise:		def
-Open Question:		def
+\pf{Proof}{...}
+\pf{Proof Idea}{...}
+\pf{Proof Overview}{...}
+\pf{Proof Sketch}{...}
 ```
 
-
-## Proof
-The proof environment actually multipurpose. For a proof many things actually play. Proof idea. Proof overview. Main pproof. Proof prerequisites etc. Thats why the first option uses the actual name of what exactly we are writing for the proof. It will go like this
-Proof idea: `\pf{Proof Idea}{content..}`
-Proof Overview: `\pf{Proof Overview}{content..}`
-Proof : `\pf{Proof}{content..}`
-
->Thereom boxes, Proof environment, Title pages and contents page are set up in the file [preamble](preamble.tex)
+---
 
 ## Contents Page
-I have a beautiful looking contents page. 
 
-<img  width=100% src="images/contents.png">
+A styled table of contents using TikZ:
 
->I woulld suggest dont play with the margin. It kind of ruins the contents page.
+<img width="100%" src="images/contents.png">
 
+> Avoid adjusting the page margins — the ToC layout depends on them.
+
+---
 
 ## Macros
-I have two macros file. One is for different fonts and the hats, bars, tildes. These are in [letterfonts](letterfonts.tex) file. 
+
+### Letter Fonts — [`letterfonts.tex`](letterfonts.tex)
+
 ```tex
-Blackboard Font:              \newcommand{\bbA}{\mathbb{A}}
-Bold Math:                    \newcommand{\bmA}{\boldsymbol{A}}
-Math SCR Font:                \newcommand{\sA}{{\mathscr{A}}}
-Math Fraktur Font:            \newcommand{\mfA}{\mathfrak{A}}
+\bbA   % Blackboard Bold  (\mathbb{A})
+\bmA   % Bold Math        (\boldsymbol{A})
+\sA    % Script           (\mathscr{A})
+\mfA   % Fraktur          (\mathfrak{A})
 
-
-Bar:                          \newcommand{\ovA}{\overline{A}}
-Tilde:                        \newcommand{\tdA}{\tilde{A}}
-Vector:                       \newcommand{\vA}{\vec{A}}
-
-
-Greek Letters:
-\newcommand{\al}{\alpha}		  \newcommand{\Al}{\Alpha}
-\newcommand{\gm}{\gamma}		  \newcommand{\Gm}{\Gamma}
-\newcommand{\dl}{\delta}		  \newcommand{\Dl}{\Delta}
-\newcommand{\eps}{\epsilon}		\newcommand{\Eps}{\Epsilon}    \newcommand{\veps}{\varepsilon}
-\newcommand{\lm}{\lambda}		  \newcommand{\Lm}{\Lambda}
-\newcommand{\sg}{\sigma}		  \newcommand{\Sg}{\Sigma}
-
-\newcommand{\vph}{\varphi}
-\newcommand{\om}{\omega}		  \newcommand{\Om}{\Omega}
+\ovA   % Overline         (\overline{A})
+\tdA   % Tilde            (\tilde{A})
+\vA    % Vector           (\vec{A})
 ```
 
-There are some other macros for general use in lecture notes, reports, and thesis documents. These are in the file [macros](macros.tex).
+Greek shorthand: `\al` `\gm` `\dl` `\eps` `\veps` `\lm` `\sg` `\vph` `\om` (and their capitals).
+
+### General Macros — [`macros.tex`](macros.tex)
+
+Common shorthands for analysis, algebra, and combinatorics — see the file for the full list.
+
+---
+
+## Files
+
+| File | Purpose |
+|---|---|
+| [`preamble.tex`](preamble.tex) | Core theme — colors, theorem boxes, ToC, title pages |
+| [`preamble-article.tex`](preamble-article.tex) | Article variant (no chapters) |
+| [`preamble-formal.tex`](preamble-formal.tex) | Formal/report variant |
+| [`letterfonts.tex`](letterfonts.tex) | Font shorthands |
+| [`macros.tex`](macros.tex) | Math macros |
+| [`main.tex`](main.tex) | Minimal working example |
