@@ -105,7 +105,7 @@ Color-coded boxes for every mathematical environment. Theorem body text is set i
 | Example | Teal | `\ex[ref]{Title}{Body}` | `\begin{example}{Title}{ref}Body\end{example}` |
 | Open Question | Purple | `\opn[ref]{Title}{Body}` | `\begin{open}{Title}{ref}Body\end{open}` |
 
-<img width="100%" src="images/theorem%20boxes.png">
+<img width="100%" src="images/theorem boxes.png">
 
 Each environment has two variants: numbered within **sections** (lowercase, e.g. `lemma`) and within **chapters** (capitalized, e.g. `Lemma`). Short commands use the section variant; append `c` for the chapter variant (`\lemc`, `\corc`, `\thmc`, …).
 
