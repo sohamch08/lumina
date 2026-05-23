@@ -1,4 +1,4 @@
-# Eye-Candy-Lecture-Notes-Theme
+# Lumina Theme
 This is a Eye Candy lecture note taking theme I have created for my personal course lecture notes. If you want to check an actual example in using this theme. Then you can check my [Analysis Lecture Notes](analysis_class-note.pdf). If you want to just view some pages of using this theme. Here check these pages
 
 <img width=100% src="images/preview-1.png">
