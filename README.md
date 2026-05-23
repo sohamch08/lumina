@@ -44,38 +44,45 @@ Lumina has been used to typeset several lecture note sets and a full MSc thesis 
 
 ## Title Page
 
-The gradient cover is the most popular style — a full-page TikZ background with a centered title block. Define `\titre` in your main `.tex` file and call it inside `\begin{titlepage}`:
+The gradient cover is built from two files: `title.tex` (the template — never needs editing) and `config.tex` (your per-document settings). **Only `config.tex` needs to be edited.** Fill in your details and the cover builds itself:
 
 ```tex
-\definecolor{mycolor1}{HTML}{E64C4C}  % top gradient color
-\definecolor{mycolor2}{HTML}{1B2021}  % bottom gradient color
+% config.tex
 
-\newcommand{\titre}[2]{\begingroup
-  \newlength{\drop}
-  \setlength{\drop}{0.1\textheight}
-  \centering
-  \settowidth{\unitlength}{\Huge\scshape Your Course Name Here\hspace{3pt}-temps}
-  \vspace*{\baselineskip}
-  \rule{\unitlength}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
-  \rule{\unitlength}{0.4pt}\\[\baselineskip]
-  {\Huge\scshape\color{white} #1}\\[\baselineskip]
-  {\large\itshape Instructor: #2}\\[0.2\baselineskip]
-  \rule{\unitlength}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
-  \rule{\unitlength}{1.6pt}\\[4\baselineskip]
-  {\Large\scshape Scribe: Your Name\\[10mm] email@institution.edu}\par
-  \vfill
-\endgroup}
+% Cover gradient (top → bottom)
+\definecolor{covercolorone}{HTML}{E64C4C}   % top color
+\definecolor{covercolortwo}{HTML}{1B2021}   % bottom color
+
+% TOC & chapter heading accent (see Contents Page section)
+\definecolor{mytoccolor}{HTML}{4549C4}
+
+% Course / document info
+\newcommand{\coursetitle}{Your Course Name}
+\newcommand{\courseyear}{Institution, Year}
+\newcommand{\instructor}{}              % leave empty to hide the Instructor line
+
+% Scribe / author info
+\newcommand{\scribename}{Your Name}
+\newcommand{\scribeemail}{you@institution.edu}
+\newcommand{\scriberwebsite}{https://yourwebsite.com/}  % leave empty to hide
+\newcommand{\scriberwebsitetext}{yourwebsite.com}
+
+% Git footer
+\renewcommand{\gitrepo}{yourname/yourrepo}
+```
+
+Then in your main file, load config before `\begin{document}` and drop `\input{title}` where the cover should appear:
+
+```tex
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+\input{config}          % ← edit this file only
 
 \begin{document}
-\thispagestyle{empty}
-\begin{titlepage}
-  \begin{tikzpicture}[remember picture,overlay]
-    \node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)
-      [minimum width=\paperwidth,minimum height=\paperheight,
-       top color=mycolor1,bottom color=mycolor2]{};
-  \end{tikzpicture}\\[3\baselineskip]
-  \titre{Course Name}{Instructor Name}
-\end{titlepage}
+\input{title}           % ← renders the cover page automatically
+…
+\end{document}
 ```
 
 Different gradient colors give each document its own identity:
@@ -155,7 +162,7 @@ All ref macros accept an optional suffix: `\thmref[s]{ftc}` → "Theorem 1.1s".
 
 ## Contents Page
 
-A styled table of contents using TikZ. The chapter heading color and the ToC color are unified — both driven by a single `\definecolor{mytoccolor}{...}` definition, so changing one color updates the whole document.
+A styled table of contents using TikZ. The chapter heading color and the ToC color are unified — both driven by `mytoccolor`, which is set in `config.tex`. Changing that one color updates the chapter title bar, all ToC entries, and section numbers throughout the document.
 
 <img width="100%" src="images/contents-algo.png">
 
@@ -204,9 +211,11 @@ Greek shorthand: `\al` `\gm` `\dl` `\eps` `\veps` `\lm` `\sg` `\vph` `\om` (and 
 
 | File | Purpose |
 |---|---|
-| [`preamble.tex`](preamble.tex) | Core theme — colors, theorem boxes, ToC, title pages |
+| [`preamble.tex`](preamble.tex) | Core theme — colors, theorem boxes, ToC, title formats |
 | [`preamble-article.tex`](preamble-article.tex) | Article variant (no chapters) |
 | [`preamble-formal.tex`](preamble-formal.tex) | Formal/report variant |
 | [`letterfonts.tex`](letterfonts.tex) | Font shorthands |
 | [`macros.tex`](macros.tex) | Math macros |
+| [`config.tex`](config.tex) | **Per-document settings** — gradient colors, `mytoccolor`, title, author, git repo |
+| [`title.tex`](title.tex) | Cover page template (reads from `config.tex`, no editing needed) |
 | [`main.tex`](main.tex) | Minimal working example |
