@@ -22,11 +22,20 @@
 
 Lumina has been used to typeset several lecture note sets and a full MSc thesis at TIFR Mumbai:
 
-| Document | Repo |
-|---|---|
-| **Exponential Sums and Weil Bounds** — MSc project report | [![GitHub](https://img.shields.io/badge/msc--project--tifr-red?style=flat-square&logo=github)](https://github.com/sohamch08/msc-project-tifr) |
-| **Algorithms** (CSS.201.1) | [![GitHub](https://img.shields.io/badge/Algorithms--CSS.201.1-blue?style=flat-square&logo=github)](https://github.com/sohamch08/Algorithms-CSS.201.1-TIFR-2024) |
-| **Complexity, Coding Theory and more** | [![GitHub](https://img.shields.io/badge/Academic--Notes-blue?style=flat-square&logo=github)](https://github.com/sohamch08/Academic-Notes) |
+<table>
+<tr>
+<td><b>Exponential Sums and Weil Bounds</b> &mdash; MSc project report (TIFR)</td>
+<td><a href="https://github.com/sohamch08/msc-project-tifr"><img src="https://img.shields.io/badge/msc--project--tifr-5E81AC?style=for-the-badge&logo=github&logoColor=white"></a></td>
+</tr>
+<tr>
+<td><b>Algorithms</b> (CSS.201.1, TIFR 2024)</td>
+<td><a href="https://github.com/sohamch08/Algorithms-CSS.201.1-TIFR-2024"><img src="https://img.shields.io/badge/Algorithms--CSS.201.1-5E81AC?style=for-the-badge&logo=github&logoColor=white"></a></td>
+</tr>
+<tr>
+<td><b>Complexity, Coding Theory, and more</b></td>
+<td><a href="https://github.com/sohamch08/Academic-Notes"><img src="https://img.shields.io/badge/Academic--Notes-5E81AC?style=for-the-badge&logo=github&logoColor=white"></a></td>
+</tr>
+</table>
 
 ---
 
