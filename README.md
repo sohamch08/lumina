@@ -1,5 +1,5 @@
 # Lumina Theme
-This is a Eye Candy lecture note taking theme I have created for my personal course lecture notes. If you want to check an actual example in using this theme. Then you can check my [Analysis Lecture Notes](analysis_class-note.pdf). If you want to just view some pages of using this theme. Here check these pages
+**Lumina** is an eye-candy LaTeX theme for lecture notes, reports, and thesis writing. If you want to check an actual example using Lumina, take a look at my [Analysis Lecture Notes](analysis_class-note.pdf). If you want to just view some pages, here are some previews.
 
 <img width=100% src="images/preview-1.png">
 <img width=100% src="images/preview-2.png">
@@ -140,4 +140,4 @@ Greek Letters:
 \newcommand{\om}{\omega}		  \newcommand{\Om}{\Omega}
 ```
 
-There are some other macros which are my lecture notes specific and daily workflow specific. These are in the file [macros](macros.tex).
+There are some other macros for general use in lecture notes, reports, and thesis documents. These are in the file [macros](macros.tex).
