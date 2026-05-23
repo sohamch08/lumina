@@ -3,11 +3,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry} 
-\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{bookmark}
 \usepackage[inline]{enumitem}
 \usepackage{cancel}
-\usepackage{hyperref,theoremref}
+\usepackage{hyperref}
+\usepackage{theoremref}
 \hypersetup{
 	colorlinks=true, linkcolor=mytheoremfr, urlcolor=mytheoremfr, citecolor=mydefinitfr!80!black,
 	bookmarksnumbered=true,
@@ -20,7 +25,9 @@
 \usepackage{varwidth}
 \usepackage{authblk}
 \usepackage{nameref}
-\usepackage{multicol,array,multirow}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{multirow}
 \usepackage{tikz-cd}
 \usepackage{cancel}
 \usepackage{caption} 
@@ -40,7 +47,8 @@
 \usepackage{marvosym}
 \usepackage{optidef}
 \usepackage{nicefrac}
-\usepackage{longtable,booktabs}
+\usepackage{longtable}
+\usepackage{booktabs}
 \usepackage{faktor}
 \usepackage{etoolbox}
 \usepackage{todonotes}
@@ -49,6 +57,13 @@
 \usepackage{imakeidx}
 \makeindex[columns=2, title=Index, intoc]
 \usepackage[missing=Untracked]{gitinfo2} % requires git hooks; see gitinfo2 docs
+\usepackage{anyfontsize}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, shapes, positioning, calc, arrows, arrows.meta, shadows.blur, automata, bending, quotes, overlay-beamer-styles}
+\usepackage{titletoc}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{environ}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PAGE LAYOUT & HEADERS
@@ -91,9 +106,6 @@
 % SELF MADE COLORS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usetikzlibrary{ shapes.geometric }
-\usetikzlibrary{calc}
-\usepackage{anyfontsize}
 \definecolor{doc}{RGB}{0,60,110}
 \definecolor{myg}{RGB}{56, 140, 70}
 \definecolor{myb}{RGB}{45, 111, 177}
@@ -117,16 +129,15 @@
 \definecolor{Emerald}{HTML}{00A99D}
 \definecolor{RoyalBlue}{HTML}{0071BC}
 \definecolor{mytoccolor}{HTML}{4549C4}
+\definecolor{gitaccent}{RGB}{100,180,255}
+\definecolor{gitdim}{RGB}{130,130,145}
+\definecolor{gitmid}{RGB}{170,170,190}
 
 \renewcommand{\qed}{\ensuremath{\blacksquare}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % GIT INFO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\definecolor{gitaccent}{RGB}{100,180,255}
-\definecolor{gitdim}{RGB}{130,130,145}
-\definecolor{gitmid}{RGB}{170,170,190}
 
 \newcommand{\gitinfonotecolour}{gitdim}
 
@@ -601,7 +612,6 @@
 % NOTE BOX
 %================================
 
-\usetikzlibrary{arrows,calc,shadows.blur}
 \tcbuselibrary{skins}
 \newtcolorbox{note}[1][]{%
 	enhanced jigsaw,
@@ -642,7 +652,6 @@
 %================================
 
 \makeatletter
-\usepackage{tabularx,environ}
 \newcommand{\problemtitle}[1]{\gdef\@problemtitle{\scshape #1}}% Store problem title
 \newcommand{\probleminput}[1]{\gdef\@probleminput{#1}}% Store problem input
 \newcommand{\problemquestion}[1]{\gdef\@problemquestion{#1}}% Store problem question
@@ -771,9 +780,6 @@
 % TABLE OF CONTENTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{tikz}
-\usetikzlibrary{shapes, positioning}
-\usepackage{titletoc,titlesec}
 \contentsmargin{0cm}
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
