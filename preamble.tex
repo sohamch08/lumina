@@ -2,7 +2,7 @@
 % PACKAGE IMPORTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry} % I woulld suggest dont play with the margin. It kind of ruins the contents page.
+\usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry} 
 \usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
 \usepackage{bookmark}
 \usepackage[inline]{enumitem}
@@ -16,7 +16,7 @@
 \usepackage[most,many,breakable]{tcolorbox}
 \usepackage[svgnames]{xcolor}
 \usepackage{graphicx}
-%\graphicspath{ {./images/} } %give your suitable image path
+\graphicspath{ {./images/} }
 \usepackage{varwidth}
 \usepackage{authblk}
 \usepackage{nameref}
@@ -27,7 +27,6 @@
 \usepackage{pgfplots}
 %\usepackage[Sonny]{fncychap}
 \usepackage{mathpazo}
-% Use the libertine package for the Libertine font
 \usepackage{libertine}
 \usepackage[libertine]{newtxmath}
 \usepackage{mathrsfs} 
@@ -271,20 +270,6 @@
 	,description font = \mdseries
 	,separator sign none
 	,segmentation style={solid, myp!85!black}
-%	enhanced
-%	,breakable
-%	,colback = mytheorembg
-%	,frame hidden
-%	,boxrule = 0sp
-%	,borderline west = {2pt}{0pt}{mytheoremfr}
-%	,sharp corners
-%	,detach title
-%	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
-%	,coltitle = mytheoremfr
-%	,fonttitle = \bfseries\sffamily
-%	,description font = \mdseries
-%	,separator sign none
-%	,segmentation style={solid, mytheoremfr}
 }
 {th}
 \tcbuselibrary{theorems,skins,hooks}
