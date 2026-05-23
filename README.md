@@ -142,9 +142,9 @@ All ref macros accept an optional suffix: `\thmref[s]{ftc}` → "Theorem 1.1s".
 
 ## Contents Page
 
-A styled table of contents using TikZ, colored with `mytoccolor`. Subsubsection depth included by default.
+A styled table of contents using TikZ. The chapter heading color and the ToC color are unified — both driven by a single `\definecolor{mytoccolor}{...}` definition, so changing one color updates the whole document.
 
-<img width="100%" src="images/contents.png">
+<img width="100%" src="images/contents-algo.png">
 
 > Avoid adjusting the page margins — the ToC layout depends on them.
 
