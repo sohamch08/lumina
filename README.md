@@ -95,15 +95,15 @@ Different gradient colors give each document its own identity:
 
 Color-coded boxes for every mathematical environment. Theorem body text is set in italic by default.
 
-| Environment | Color | Short command |
-|---|---|---|
-| Theorem | Blue | `\thm[ref]{Title}{Body}` |
-| Lemma | Green | `\lem[ref]{Title}{Body}` |
-| Claim | Green | `\clm[ref]{Title}{Body}` |
-| Corollary | Purple | `\cor[ref]{Title}{Body}` |
-| Definition | Red | `\dfn[ref]{Title}{Body}` |
-| Example | Teal | `\ex[ref]{Title}{Body}` |
-| Open Question | Purple | `\opn[ref]{Title}{Body}` |
+| Environment | Color | Short command | Long Command |
+|---|---|---|---|
+| Theorem | Blue | `\thm[ref]{Title}{Body}` | `\begin{theorem}{Title}{ref}Body\end{theorem}` |
+| Lemma | Green | `\lem[ref]{Title}{Body}` | `\begin{Lemma}{Title}{ref}Body\end{Lemma}` |
+| Claim | Green | `\clm[ref]{Title}{Body}` | `\begin{claim}{Title}{ref}Body\end{claim}` |
+| Corollary | Purple | `\cor[ref]{Title}{Body}` | `\begin{corolary}{Title}{ref}Body\end{corolary}` |
+| Definition | Red | `\dfn[ref]{Title}{Body}` | `\begin{Definition}{Title}{ref}Body\end{Definition}` |
+| Example | Teal | `\ex[ref]{Title}{Body}` | `\begin{example}{Title}{ref}Body\end{example}` |
+| Open Question | Purple | `\opn[ref]{Title}{Body}` | `\begin{open}{Title}{ref}Body\end{open}` |
 
 <img width="100%" src="images/theorem%20boxes.png">
 
@@ -123,10 +123,13 @@ Pass the ref name as the optional `[ref]` argument:
 
 | Environment | Prefix | Ref macro |
 |---|---|---|
-| Theorem / Claim / Lemma / Corollary | `th:` | `\thmref`, `\lmref`, `\corref` |
+| Theorem | `th:` | `\thmref` |
+| Lemma | `th:` |  `\lemref` |
+| Corollary | `th:` | `\corref` |
+| Proposition | `th:` | `\propref` |
 | Definition / Exercise / Open Question | `def:` | `\defref` |
-| Example | `ex:` | — |
 | Observation | (raw) | `\obsref` |
+| Example | `ex:` | — |
 
 All ref macros accept an optional suffix: `\thmref[s]{ftc}` → "Theorem 1.1s".
 
@@ -178,20 +181,21 @@ Greek shorthand: `\al` `\gm` `\dl` `\eps` `\veps` `\lm` `\sg` `\vph` `\om` (and 
 ### General Macros — [`macros.tex`](macros.tex)
 
 ```tex
-\thmref[s]{ftc}         % Theorem 1.1s  (optional suffix)
-\lmref{key}             % Lemma 2.3
-\corref{key}            % Corollary 1.4
-\obsref{key}            % Observation 5
-\defref{key}            % Definition 2.1
+\thmref[s]{ftc}           % Theorem 1.1.1s  (optional suffix)
+\lemref[s]{key}           % Lemma 2.3.1s  
+\corref[s]{key}           % Corollary 1.4.1s
+\propref[s{key}           % Proposition 2.1.1s
+\obsref[s]{key}           % Observation 5s
+\defref[s]{key}           % Definition 2.1.1s
 
-\by{Theorem 1.1}        % &[By Theorem 1.1]  (proof alignment)
-\byt{ftc}               % &[By Theorem 1.1]  (auto-linked)
-\byl{key} \byc{key}     % &[By Lemma/Corollary ...]
+\by{Theorem 1.1}          % &[By Theorem 1.1]  (proof alignment)
+\byt{ftc}                 % &[By Theorem 1.1]  (auto-linked)
+\byl{key} \byc{key}       % &[By Lemma/Corollary ...]
 
-\Leg{a}{p}              % Legendre symbol (a/p)
-\Tfae                   % "The following are equivalent:"
-\quot{G}{H}             % G / H  (inline quotient)
-\matr{a & b \\ c & d}   % matrix without brackets
+\Leg{a}{p}                % Legendre symbol (a/p)
+\Tfae                     % "The following are equivalent:"
+\quotient{G}{H}           % G / H  (inline quotient)
+\matr{a & b \\ c & d}     % matrix without brackets
 ```
 
 ---

@@ -81,17 +81,28 @@
 
 \newcommand{\ov}[1]{\overline{#1}}
 \newcommand{\bm}[1]{\boldsymbol{#1}}
-\newcommand{\thmref}[2][]{\hyperref[th:#2]{Theorem~\ref{th:#2}#1}}
-\newcommand{\propref}[2][]{\hyperref[th:#2]{Proposition~\ref{th:#2}#1}}
-\newcommand{\lmref}[2][]{\hyperref[th:#2]{Lemma~\ref{th:#2}#1}}
-\newcommand{\corref}[2][]{\hyperref[th:#2]{Corollary~\ref{th:#2}#1}}
-\newcommand{\obsref}[2][]{\hyperref[#2]{Observation~\ref{#2}#1}}
-\newcommand{\defref}[2][]{\hyperref[def:#2]{Definition~\ref{def:#2}#1}}
+\newcommand{\thmref}[2][]{%
+	\hyperref[th:#2]{Theorem~\ref{th:#2}#1}%
+}
+\newcommand{\propref}[2][]{%
+	\hyperref[th:#2]{Proposition~\ref{th:#2}#1}%
+}
+\newcommand{\lmref}[2][]{%
+	\hyperref[th:#2]{Lemma~\ref{th:#2}#1}%
+}
+\newcommand{\lemref}[2][]{%
+	\hyperref[th:#2]{Lemma~\ref{th:#2}#1}%
+}
+\newcommand{\corref}[2][]{%
+	\hyperref[th:#2]{Corollary~\ref{th:#2}#1}%
+}
+\newcommand{\obsref}[2][]{%
+	\hyperref[#2]{Observation~\ref{#2}#1}%
+}
+\newcommand{\defref}[2][]{%
+	\hyperref[def:#2]{Definition~\ref{def:#2}#1}%
+}
 
-\newcommand{\thrmref}[1]{\hyperref[#1]{Theorem \ref{#1}}}
-\newcommand{\propnref}[1]{\hyperref[#1]{Proposition \ref{#1}}}
-\newcommand{\lemref}[1]{\hyperref[#1]{Lemma \ref{#1}}}
-\newcommand{\corrref}[1]{\hyperref[#1]{Corollary \ref{#1}}}
 
 \newcommand{\by}[1]{&[\text{By #1}]}
 \newcommand{\byt}[2][]{\by{\thmref[#1]{#2}}}
