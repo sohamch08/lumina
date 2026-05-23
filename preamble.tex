@@ -10,12 +10,12 @@
 \usepackage{cancel}
 \usepackage{hyperref,theoremref}
 \hypersetup{
-	colorlinks=true, linkcolor=doc!80, urlcolor=doc!80, citecolor=mydefinitfr!80!black,
+	colorlinks=true, linkcolor=mytheoremfr, urlcolor=mytheoremfr, citecolor=mydefinitfr!80!black,
 	bookmarksnumbered=true,
 	bookmarksopen=true
 }
 \usepackage[most,many,breakable]{tcolorbox}
-\usepackage{xcolor}
+\usepackage[svgnames]{xcolor}
 \usepackage{graphicx}
 %\graphicspath{ {./images/} } %give your suitable image path
 \usepackage{varwidth}
@@ -48,9 +48,13 @@
 \usepackage{todonotes}
 \usepackage{ragged2e}
 \usepackage{xhfill}
+\usepackage{imakeidx}
+\makeindex[columns=2, title=Index, intoc]
+\usepackage[missing=Untracked]{gitinfo2} % requires git hooks; see gitinfo2 docs
 \fancypagestyle{plain}{%
 	\renewcommand{\headrulewidth}{0pt}%
 	\fancyhf{}%
+	% \fancyfoot[C]{\textcolor{\gitinfonotecolour}{\gitinfonote}}%
 }
 \fancypagestyle{fancy}{
 	\fancyhead{}
@@ -59,6 +63,7 @@
 	\fancyhead[RO]{\itshape\textsc\leftmark}
 	\fancyfoot{}
 	\fancyhead[RE,LO]{\itshape Page \thepage}
+	% \fancyfoot[C]{\textcolor{\gitinfonotecolour}{\gitinfonote}}%
 }
 \pagestyle{fancy}
 \makeatletter
@@ -113,6 +118,30 @@
 \definecolor{Emerald}{HTML}{00A99D}
 \definecolor{RoyalBlue}{HTML}{0071BC}
 \definecolor{mytoccolor}{HTML}{4549C4}
+\definecolor{gitaccent}{RGB}{100,180,255}
+\definecolor{gitdim}{RGB}{130,130,145}
+\definecolor{gitmid}{RGB}{170,170,190}
+
+\newcommand{\gitinfonotecolour}{gitdim}
+
+\newcommand{\gitsep}{%
+	\textcolor{mytheoremfr!80!white}{$\mid$}%
+}
+
+\newcommand{\gitinfonote}{%
+	\texttt{\footnotesize%
+		\textcolor{gitaccent}{\normalfont}\,%
+		\href{https://github.com/sohamch08/lumina}{%
+			\textcolor{mytheoremfr!80!white}{\faGithub\,\texttt{\textup{sohamch08/lumina}}}%
+		}%
+		\;\gitsep\;%
+		\textcolor{myr!80!white}{\normalfont\faGit*}\,%
+		\textcolor{gitdim}{\texttt{\gitAbbrevHash}}%
+		\;\gitsep\;%
+		\textcolor{mytheoremfr!80!white}{\normalfont\faCalendar}\,%
+		\textcolor{gitdim}{\texttt{\gitAuthorIsoDate}}%
+	}%
+}
 
 \renewcommand{\qed}{\ensuremath{\blacksquare}}
 
@@ -670,7 +699,9 @@
 \newcommand{\cor}[3][]{\begin{corolary}{#2}{#1}#3\end{corolary}}
 \newcommand{\corc}[3][]{\begin{corollary}{#2}{#1}#3\end{corollary}}
 \newcommand{\lem}[3][]{\begin{lemma}{#2}{#1}#3\end{lemma}}
+\newcommand{\lemc}[3][]{\begin{Lemma}{#2}{#1}#3\end{Lemma}}
 \newcommand{\clm}[3][]{\begin{claim}{#2}{#1}#3\end{claim}}
+\newcommand{\clmc}[3][]{\begin{Claim}{#2}{#1}#3\end{Claim}}
 \newcommand{\wc}[3][]{\begin{wconc}{#2}{#1}\setlength{\parindent}{1cm}#3\end{wconc}}
 \newcommand{\thmcon}[1]{\begin{Theoremcon}{#1}\end{Theoremcon}}
 \newcommand{\ex}[3][]{\begin{Example}{#2}{#1}#3\end{Example}}
@@ -702,7 +733,7 @@
 \newenvironment{proof-idea}{\noindent{\textbf{\textit{Proof Idea:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
 \newenvironment{proof-of-theorem}[1][]{\noindent{\textbf{\textit{Proof of \thmref{#1}:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
 \newenvironment{proof-of-lemma}[1][]{\noindent{\textbf{\textit{Proof of \lmref{#1}:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
-\newenvironment{proof-of-corollary}[1][]{\noindent{\textbf{\textit{Proof of \corrref{#1}:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{proof-of-corollary}[1][]{\noindent{\textbf{\textit{Proof of \corref{#1}:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
 \newenvironment{proof-attempt}{\noindent{\textbf{\textit{Proof Attempt:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
 \newenvironment{alternate-proof}[1][]{\noindent{\textit{\textbf{Alternate Proof #1:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
 \newenvironment{anotherproof}{\noindent{\textit{\textbf{Another Proof:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
