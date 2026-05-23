@@ -1,0 +1,32 @@
+\pagestyle{plain}
+\thispagestyle{empty}
+\begin{titlepage}
+
+	\begin{tikzpicture}[remember picture,overlay]
+		\node [xshift=\paperwidth/2,yshift=\paperheight/2]
+		at (current page.south west)
+		[minimum width=\paperwidth, minimum height=\paperheight,
+			top color=covercolorone, bottom color=covercolortwo]{};
+	\end{tikzpicture}\\[3\baselineskip]
+
+	\begingroup
+	\centering
+	\settowidth{\unitlength}{\Huge\scshape \coursetitle\hspace{3pt}-temps}
+	\vspace*{\baselineskip}
+	\rule{\unitlength}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+	\rule{\unitlength}{0.4pt}\\[\baselineskip]
+	{\Huge\scshape\color{white} \coursetitle}\\[\baselineskip]
+	\ifdefempty{\instructor}{}{%
+		{\large\itshape Instructor:~\instructor}\\[0.2\baselineskip]}%
+	{\large\itshape \courseyear}\\[0.2\baselineskip]
+	\rule{\unitlength}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+	\rule{\unitlength}{1.6pt}\\[4\baselineskip]
+	{\Large\scshape Scribe:~\scribename\\[10mm]
+		\scribeemail
+		\ifdefempty{\scriberwebsite}{}{%
+			\\[2mm]Website:~\colorlink{black}{\scriberwebsite}{\scriberwebsitetext}}%
+	}\par
+	\vfill
+	\endgroup
+
+\end{titlepage}
