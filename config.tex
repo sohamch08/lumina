@@ -1,25 +1,48 @@
-%% ─── Document configuration ────────────────────────────────────────────────
+%% ─── Document Configuration ────────────────────────────────────────────────
 %% Edit these values for each new document. title.tex reads them to build
 %% the cover page; \gitrepo overrides the default set in preamble.tex.
+%%
+%% HOW TO USE:
+%%   1. Copy this block into your main.tex, before \begin{document}
+%%   2. Fill in the fields below — all fields marked [REQUIRED] must be set
+%%   3. Fields marked [OPTIONAL] can be left empty {} or commented out
+%% ────────────────────────────────────────────────────────────────────────────
 
-% Cover page gradient (top → bottom)
-\definecolor{covercolorone}{HTML}{1becff}   % top color
-\definecolor{covercolortwo}{HTML}{2E3192}   % bottom color
+%% ── Cover Page Gradient ──────────────────────────────────────────────────────
+%% The cover page background fades from covercolorone (top) to covercolortwo
+%% (bottom). Use any hex color code. Some nice pairs:
+%%   Ocean:   #1becff → #2E3192      Sunset:  #f7971e → #ffd200
+%%   Forest:  #134E5E → #71B280      Midnight:#232526 → #414345
+\definecolor{covercolorone}{HTML}{1becff}   % [REQUIRED] top color of gradient
+\definecolor{covercolortwo}{HTML}{2E3192}   % [REQUIRED] bottom color of gradient
 
-% TOC & chapter heading accent — drives both the contents page and the chapter title bar
-% (overrides the default defined in preamble.tex)
-\definecolor{mytoccolor}{HTML}{4549C4}
+%% ── Accent Color ─────────────────────────────────────────────────────────────
+%% Drives the TOC entries, chapter title bars, and section rule lines.
+%% Should contrast well against white. Avoid very light colors.
+\definecolor{mytoccolor}{HTML}{4549C4}      % [REQUIRED] accent color
 
-% Course / document info
-\newcommand{\coursetitle}{CSS.201.1 Algorithms}
-\newcommand{\courseyear}{TIFR 2024, Aug--Nov}
-\newcommand{\instructor}{}              % instructor name, or leave empty
+%% ── Course / Document Info ───────────────────────────────────────────────────
+%% \coursetitle   : Full name of the course or document
+%%                  e.g. "Algebraic Topology", "Analytic Number Theory"
+%% \courseyear    : Semester, year, and institution shown under the title
+%%                  e.g. "Autumn 2025 · TIFR Mumbai"
+%% \instructor    : Name of the lecturer. Leave empty {} to hide.
+\newcommand{\coursetitle}{Foundations of Virtue and the Examined Life}      % [REQUIRED]
+\newcommand{\courseyear}{399 BC · The Agora, Athens}                        % [REQUIRED]
+\newcommand{\instructor}{Prof. Socrates}                                     % [OPTIONAL]
 
-% Scribe / author info
-\newcommand{\scribename}{Soham Chatterjee}
-\newcommand{\scribeemail}{soham.chatterjee@tifr.res.in}
-\newcommand{\scriberwebsite}{https://sohamch08.github.io/}  % leave empty to hide
-\newcommand{\scriberwebsitetext}{sohamch08.github.io}
+%% ── Scribe / Author Info ─────────────────────────────────────────────────────
+%% \scribename         : Your full name as it appears on the cover
+%% \scribeemail        : Your email — rendered as a mailto: link
+%% \scriberwebsite     : Full URL of your site. Leave empty {} to hide.
+%% \scriberwebsitetext : Display text shown for the link above
+\newcommand{\scribename}{Plato}                                              % [REQUIRED]
+\newcommand{\scribeemail}{plato@academy.athens.gr}                           % [REQUIRED]
+\newcommand{\scriberwebsite}{https://plato.academy.gr}                       % [OPTIONAL] leave {} to hide
+\newcommand{\scriberwebsitetext}{plato.academy.gr}                           % [OPTIONAL] display text for above
 
-% Git footer — overrides the placeholder set in preamble.tex
-\renewcommand{\gitrepo}{sohamch08/lumina}
+%% ── Git Footer ───────────────────────────────────────────────────────────────
+%% Shown in the footer of every page as a clickable link to your repository.
+%% Format: "username/repo-name"  e.g. "plato/examined-life-notes"
+%% Leave empty {} if you don't host your notes on GitHub.
+\renewcommand{\gitrepo}{plato/examined-life-notes}                           % [OPTIONAL]
