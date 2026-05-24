@@ -69,6 +69,12 @@
 % PAGE LAYOUT & HEADERS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Enable two-sided header logic (LE/RO distinction) even when the document
+% class is loaded without the twoside option.
+\makeatletter
+\@twosidetrue
+\makeatother
+
 \fancypagestyle{plain}{%
 	\renewcommand{\headrulewidth}{0pt}%
 	\fancyhf{}%
@@ -77,13 +83,12 @@
 \fancypagestyle{fancy}{
 	\fancyhead{}
 	\renewcommand{\headrulewidth}{1pt}
-	\fancyhead[LE]{\itshape\textsc{\nouppercase\rightmark}}
-	\fancyhead[RO]{\itshape\textsc\leftmark}
+	\fancyhead[LE]{\nouppercase\rightmark}
+	\fancyhead[RO]{\leftmark} % CO Centered Odd
 	\fancyfoot{}
 	\fancyhead[RE,LO]{\itshape Page \thepage}
-	\fancyfoot[C]{\textcolor{\gitinfonotecolour}{\gitinfonote}}%
+	% \fancyfoot[C]{\textcolor{\gitinfonotecolour}{\gitinfonote}}%
 }
-\pagestyle{fancy}
 \makeatletter
 \renewcommand{\chaptermark}[1]{%
 	\markboth{%
@@ -96,7 +101,7 @@
 }
 \def\sectionmark#1{%
 	\markright{%
-		\ifnum \c@secnumdepth >\z@
+		\ifnum\c@secnumdepth>\z@
 			\S\hspace{0.05em}\thesection\ %
 		\fi
 		#1}}
