@@ -70,7 +70,12 @@ Lumina has been used to typeset several lecture note sets and a full MSc thesis 
 
 ## ◈ &ensp; Title Page
 
-The gradient cover is built from two files: `title.tex` (the template — never needs editing) and `config.tex` (your per-document settings). **Only `config.tex` needs to be edited.** Fill in your details and the cover builds itself:
+The gradient cover is built from two files: `title.tex` (the template — never needs editing) and `config.tex` (your per-document settings). **Only `config.tex` needs to be edited.** Fill in your details and the cover builds itself.
+
+<details>
+<summary><b> config.tex — full template</b></summary>
+
+<br>
 
 ```tex
 % config.tex
@@ -97,6 +102,13 @@ The gradient cover is built from two files: `title.tex` (the template — never 
 \renewcommand{\gitrepo}{yourname/yourrepo}
 ```
 
+</details>
+
+<details>
+<summary><b> main.tex — minimal setup</b></summary>
+
+<br>
+
 Then in your main file, load config before `\begin{document}` and drop `\input{title}` where the cover should appear:
 
 ```tex
@@ -110,6 +122,8 @@ Then in your main file, load config before `\begin{document}` and drop `\input{t
 …
 \end{document}
 ```
+
+</details>
 
 Different gradient colors give each document its own identity:
 
@@ -148,12 +162,6 @@ Section variants are numbered within sections (`theorem`, `lemma`, …); chapter
 
 All ref macros and proof-alignment helpers live in `preamble.tex`. Pass the ref name as the optional `[ref]` argument:
 
-```tex
-\thm[ftc]{Fundamental Theorem of Calculus}{Statement here.}
-% refer elsewhere as \thmref{ftc}   →  "Theorem 1.1"
-% or with link text: \hyperref[th:ftc]{Theorem \ref{th:ftc}}
-```
-
 | Environment | Prefix | Ref macro |
 |---|---|---|
 | Theorem | `th:` | `\thmref` |
@@ -167,7 +175,25 @@ All ref macros and proof-alignment helpers live in `preamble.tex`. Pass the ref 
 
 All ref macros accept an optional suffix: `\thmref[s]{ftc}` → "Theorem 1.1s".
 
-Use the `\by` family inside `align` environments to annotate proof steps:
+<details>
+<summary><b> Declaring & referencing environments</b></summary>
+
+<br>
+
+```tex
+\thm[ftc]{Fundamental Theorem of Calculus}{Statement here.}
+% refer elsewhere as \thmref{ftc}   →  "Theorem 1.1"
+% or with link text: \hyperref[th:ftc]{Theorem \ref{th:ftc}}
+```
+
+</details>
+
+<details>
+<summary><b> \by family — proof step annotations</b></summary>
+
+<br>
+
+Use inside `align` environments to annotate proof steps:
 
 ```tex
 \by{Theorem 1.1}      % &[By Theorem 1.1]
@@ -178,9 +204,16 @@ Use the `\by` family inside `align` environments to annotate proof steps:
 \bye{eq-label}        % &[By (X.X)]          (equation ref)
 ```
 
+</details>
+
 ---
 
 ## ◈ &ensp; Proof Environments
+
+<details>
+<summary><b> All proof environments</b></summary>
+
+<br>
 
 ```tex
 \begin{proof}...\end{proof}
@@ -196,6 +229,8 @@ Use the `\by` family inside `align` environments to annotate proof steps:
 \begin{enough}...\end{enough}               % Enough to Show: ...
 ```
 
+</details>
+
 ---
 
 ## ◈ &ensp; Contents Page
@@ -210,7 +245,10 @@ A styled table of contents using TikZ. The chapter heading color and the ToC col
 
 ## ◈ &ensp; Macros
 
-### Letter Fonts — [`letterfonts.tex`](letterfonts.tex)
+<details>
+<summary><b> Letter Fonts &nbsp;—&nbsp; <a href="letterfonts.tex"><code>letterfonts.tex</code></a></b></summary>
+
+<br>
 
 ```tex
 \bbA   % Blackboard Bold  (\mathbb{A})
@@ -223,7 +261,12 @@ A styled table of contents using TikZ. The chapter heading color and the ToC col
 
 Greek shorthand: `\al` `\gm` `\dl` `\eps` `\veps` `\lm` `\sg` `\vph` `\om` (and their capitals).
 
-### General Macros — [`macros.tex`](macros.tex)
+</details>
+
+<details>
+<summary><b> General Macros &nbsp;—&nbsp; <a href="macros.tex"><code>macros.tex</code></a></b></summary>
+
+<br>
 
 ```tex
 \Leg{a}{p}                % Legendre symbol (a/p)
@@ -236,6 +279,8 @@ Greek shorthand: `\al` `\gm` `\dl` `\eps` `\veps` `\lm` `\sg` `\vph` `\om` (and 
 \mat{a & b \\ c & d}      % matrix with brackets
 \comb{n}{k}               % binomial coefficient
 ```
+
+</details>
 
 ---
 
