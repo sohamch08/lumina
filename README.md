@@ -1,54 +1,74 @@
 <div align="center">
 
-# ✦ Lumina
+<br>
+
+# ✦ &ensp; L U M I N A
+
+<br>
+
+> *Beautiful mathematics deserves beautiful typography.*
 
 **An eye-candy LaTeX theme for lecture notes, reports, and theses**
 
-[![License](https://img.shields.io/github/license/sohamch08/lumina?style=for-the-badge&color=5E81AC)](LICENSE)
-[![LaTeX](https://img.shields.io/badge/LaTeX-pdfLaTeX-008080?style=for-the-badge&logo=latex&logoColor=white)](https://www.latex-project.org/)
-[![Stars](https://img.shields.io/github/stars/sohamch08/lumina?style=for-the-badge&color=EBCB8B)](https://github.com/sohamch08/lumina/stargazers)
+<br>
+
+[![License](https://img.shields.io/github/license/sohamch08/lumina?style=for-the-badge&color=5E81AC&labelColor=1C1C2E)](LICENSE)&ensp;[![LaTeX](https://img.shields.io/badge/engine-pdfLaTeX-008080?style=for-the-badge&logo=latex&logoColor=white&labelColor=1C1C2E)](https://www.latex-project.org/)&ensp;[![Stars](https://img.shields.io/github/stars/sohamch08/lumina?style=for-the-badge&color=EBCB8B&labelColor=1C1C2E)](https://github.com/sohamch08/lumina/stargazers)&ensp;[![Demo PDF](https://img.shields.io/badge/demo-main.pdf-BF616A?style=for-the-badge&labelColor=1C1C2E&logo=adobeacrobatreader&logoColor=white)](main.pdf)
+
+<br>
+
+</div>
+
+◆&ensp;**Color-coded theorem boxes** &nbsp;—&nbsp; 7 environments, section & chapter variants  
+◆&ensp;**Gradient cover pages** &nbsp;—&nbsp; per-document identity from one config file  
+◆&ensp;**TikZ-powered table of contents** &nbsp;—&nbsp; accent-unified with chapter bars  
+◆&ensp;**Smart ref macros** &nbsp;—&nbsp; hyperlinked `\thmref`, `\lemref`, `\defref`, …  
+◆&ensp;**10+ proof environments** &nbsp;—&nbsp; sketch · idea · alternate · combinatorial · algebraic  
+◆&ensp;**Two-sided headers** &nbsp;—&nbsp; chapter mark on right pages, section mark on left
+
+---
+
+## ◈ &ensp; Previews
+
+<div align="center">
+
+<img width="49%" src="images/preview-1.png"> <img width="49%" src="images/preview-2.png">
 
 </div>
 
 ---
 
-## Previews
-
-<img width="49%" src="images/preview-1.png"> <img width="49%" src="images/preview-2.png">
-
----
-
-## Demo
+## ◈ &ensp; Demo
 
 The file [`main.tex`](main.tex) is a fully worked example using the theme — two chapters of Greek mathematics covering commensurability, irrationality, and prime numbers. The compiled output is [`main.pdf`](main.pdf).
 
 ---
 
-## Showcase
+## ◈ &ensp; Showcase
 
 Lumina has been used to typeset several lecture note sets and a full MSc thesis at TIFR Mumbai:
 
 <table>
 <tr>
 <td><b>Exponential Sums and Weil Bounds</b> &mdash; MSc project report (TIFR)</td>
-<td><a href="https://github.com/sohamch08/msc-project-tifr"><img src="https://img.shields.io/badge/msc--project--tifr-5E81AC?style=for-the-badge&logo=github&logoColor=white"></a></td>
+<td><a href="https://github.com/sohamch08/msc-project-tifr"><img src="https://img.shields.io/badge/msc--project--tifr-5E81AC?style=for-the-badge&logo=github&logoColor=white&labelColor=1C1C2E"></a></td>
 </tr>
 <tr>
 <td><b>Algorithms</b> (CSS.201.1, TIFR 2024)</td>
-<td><a href="https://github.com/sohamch08/algorithms-tifr"><img src="https://img.shields.io/badge/Algorithms--CSS.201.1-5E81AC?style=for-the-badge&logo=github&logoColor=white"></a></td>
+<td><a href="https://github.com/sohamch08/algorithms-tifr"><img src="https://img.shields.io/badge/Algorithms--TIFR-5E81AC?style=for-the-badge&logo=github&logoColor=white&labelColor=1C1C2E"></a></td>
 </tr>
 <tr>
 <td><b>Complexity, Coding Theory, and more</b></td>
-<td><a href="https://github.com/sohamch08/Academic-Notes"><img src="https://img.shields.io/badge/Academic--Notes-5E81AC?style=for-the-badge&logo=github&logoColor=white"></a></td>
+<td><a href="https://github.com/sohamch08/Academic-Notes"><img src="https://img.shields.io/badge/Academic--Notes-5E81AC?style=for-the-badge&logo=github&logoColor=white&labelColor=1C1C2E"></a></td>
 </tr>
 <tr>
 <td><b>Multivariable Analysis</b></td>
-<td><a href="https://github.com/sohamch08/multivariable-analysis-CMI"><img src="https://img.shields.io/badge/Multivariable--Analysis-5E81AC?style=for-the-badge&logo=github&logoColor=white"></a></td>
+<td><a href="https://github.com/sohamch08/multivariable-analysis-CMI"><img src="https://img.shields.io/badge/Multivariable--Analysis-5E81AC?style=for-the-badge&logo=github&logoColor=white&labelColor=1C1C2E"></a></td>
 </tr>
 </table>
+
 ---
 
-## Title Page
+## ◈ &ensp; Title Page
 
 The gradient cover is built from two files: `title.tex` (the template — never needs editing) and `config.tex` (your per-document settings). **Only `config.tex` needs to be edited.** Fill in your details and the cover builds itself:
 
@@ -104,7 +124,7 @@ Different gradient colors give each document its own identity:
 
 ---
 
-## Theorem Environments
+## ◈ &ensp; Theorem Environments
 
 Color-coded boxes for every mathematical environment. Theorem body text is set in italic by default.
 
@@ -124,7 +144,7 @@ Section variants are numbered within sections (`theorem`, `lemma`, …); chapter
 
 ---
 
-## Referencing
+## ◈ &ensp; Referencing
 
 All ref macros and proof-alignment helpers live in `preamble.tex`. Pass the ref name as the optional `[ref]` argument:
 
@@ -160,7 +180,7 @@ Use the `\by` family inside `align` environments to annotate proof steps:
 
 ---
 
-## Proof Environments
+## ◈ &ensp; Proof Environments
 
 ```tex
 \begin{proof}...\end{proof}
@@ -178,7 +198,7 @@ Use the `\by` family inside `align` environments to annotate proof steps:
 
 ---
 
-## Contents Page
+## ◈ &ensp; Contents Page
 
 A styled table of contents using TikZ. The chapter heading color and the ToC color are unified — both driven by `mytoccolor`, which is set in `config.tex`. Changing that one color updates the chapter title bar, all ToC entries, and section numbers throughout the document.
 
@@ -188,7 +208,7 @@ A styled table of contents using TikZ. The chapter heading color and the ToC col
 
 ---
 
-## Macros
+## ◈ &ensp; Macros
 
 ### Letter Fonts — [`letterfonts.tex`](letterfonts.tex)
 
@@ -219,7 +239,7 @@ Greek shorthand: `\al` `\gm` `\dl` `\eps` `\veps` `\lm` `\sg` `\vph` `\om` (and 
 
 ---
 
-## Files
+## ◈ &ensp; Files
 
 | File | Purpose |
 |---|---|
@@ -231,3 +251,7 @@ Greek shorthand: `\al` `\gm` `\dl` `\eps` `\veps` `\lm` `\sg` `\vph` `\om` (and 
 | [`config.tex`](config.tex) | **Per-document settings** — gradient colors, `mytoccolor`, title, author, git repo |
 | [`title.tex`](title.tex) | Cover page template (reads from `config.tex`, no editing needed) |
 | [`main.tex`](main.tex) | Minimal working example |
+
+<br>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:4549C4,50:1C1C2E,100:0B0C1A&height=120&section=footer"/>
