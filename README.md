@@ -133,6 +133,7 @@ Pass the ref name as the optional `[ref]` argument:
 | Theorem | `th:` | `\thmref` |
 | Lemma | `th:` |  `\lemref` |
 | Corollary | `th:` | `\corref` |
+| Claim | `th:` | `\claimref` |
 | Proposition | `th:` | `\propref` |
 | Definition / Exercise / Open Question | `def:` | `\defref` |
 | Observation | (raw) | `\obsref` |
