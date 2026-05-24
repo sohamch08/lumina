@@ -1,14 +1,14 @@
 \documentclass{report}
-\input{preamble}
-\input{macros}
-\input{letterfonts}
-\input{config}
+\include{preamble}
+\include{macros}
+\include{letterfonts}
+\include{config}
 
 \pgfplotsset{compat=1.18}
 
 \begin{document}
 
-\input{title}
+\include{title}
 
 \newpage
 
@@ -20,6 +20,12 @@
 }
 \clearpage
 \pagestyle{fancy}
+
+%% ══════════════════════════════════════════════════════════════════════
+%%  YOUR CONTENT STARTS HERE
+%%  Everything above (title, TOC, pagestyle) is boilerplate — leave it.
+%%  Add your chapters, sections, and environments below this marker.
+%% ══════════════════════════════════════════════════════════════════════
 
 %%──────────────────────────────────────────────────────────────────────
 \chapter{Commensurability and the Diagonal}

@@ -18,6 +18,12 @@
 
 ---
 
+## Demo
+
+The file [`main.tex`](main.tex) is a fully worked example using the theme — two chapters of Greek mathematics covering commensurability, irrationality, and prime numbers. The compiled output is [`main.pdf`](main.pdf).
+
+---
+
 ## Showcase
 
 Lumina has been used to typeset several lecture note sets and a full MSc thesis at TIFR Mumbai:
