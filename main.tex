@@ -21,18 +21,468 @@
 \clearpage
 \pagestyle{fancy}
 
-\chapter{First Chapter}
-\section{Section 1}
-\dfn{Definition Topic}{Definition Statement}
-\thm{Theorem Name}{Theorem Statement}
-\cor[cori]{Corollary Name}{Corollary Statement}
-\lem{Lemma Name}{Lemma Statement}
-\clm{Claim Name}{Claim Statement}
-\ex{Example Name}{Example explained}
-\opn{Open Question Name}{Question Statement}
-\qs{Question Name}{Question Statement}
-\nt{Special Note}
-\wc{Wrong Concept topic}{Explanation}
-\chapter{Second Chapter}
-\section{Section 1}
+%%──────────────────────────────────────────────────────────────────────
+\chapter{Commensurability and the Diagonal}
+%%──────────────────────────────────────────────────────────────────────
+
+\section{Magnitudes and Their Measures}
+
+\dfn[commensurate]{Commensurable Magnitudes}{
+	Two magnitudes $a$ and $b$ are \textbf{commensurable} if there exists a
+	magnitude $u$ such that $a = mu$ and $b = nu$ for some positive integers
+	$m$ and $n$; the magnitude $u$ is called a \emph{common measure}.
+	If no common measure exists the magnitudes are \textbf{incommensurable}.
+}
+
+\ex[meno]{The Meno Square}{
+	A square of side $1$ has area $1$.  Socrates asks Meno's slave: which
+	square has exactly double the area?  A side of length $2$ gives area
+	$4$ — too large.  A side of $\tfrac{3}{2}$ gives $\tfrac{9}{4}$ — still
+	wrong.  The slave is perplexed.
+
+	Socrates then draws the diagonal of the original square and shows that
+	four right triangles, each half the original square, fit exactly into
+	the square built on that diagonal.  The desired side is the diagonal
+	itself — a magnitude of length $\sqrt{2}$.  As we shall prove, it is
+	incommensurable with the unit side.
+}
+
+\nt{The Meno demonstration does not merely solve a geometry problem.  Socrates
+	takes it as evidence of \emph{anamnesis}: the slave, who was never taught
+	geometry, recollects the truth through questioning alone.  Whether the
+	same soul carries mathematical knowledge across lives is a separate
+	inquiry — but the geometry itself admits no such ambiguity.}
+
+\section{The Pythagorean Theorem}
+
+\thm[pythagoras]{Pythagorean Theorem}{
+	In a right triangle with legs $a, b$ and hypotenuse $c$,
+	\[
+		a^2 + b^2 = c^2.
+	\]
+}
+
+\begin{proof}
+	Arrange four congruent copies of the right triangle inside a square of
+	side $a + b$, with hypotenuses forming an inner tilted square of side
+	$c$.  Equating areas:
+	\[
+		(a+b)^2 = 4 \cdot \tfrac{1}{2}ab + c^2
+		\implies a^2 + 2ab + b^2 = 2ab + c^2
+		\implies a^2 + b^2 = c^2. \qedhere
+	\]
+\end{proof}
+
+\cor[diagonal]{Length of the Diagonal}{
+	The diagonal of a unit square has length $\sqrt{2}$.
+}
+
+\begin{proof}
+	Apply \thmref{pythagoras} with $a = b = 1$: $c^2 = 2$, so $c = \sqrt{2}$.
+\end{proof}
+
+\section{The Incommensurability of $\sqrt{2}$}
+
+\lem[even-square]{Parity of Squares}{
+	For any integer $n$: $n^2$ is even if and only if $n$ is even.
+}
+
+\begin{proof}
+	$(\Leftarrow)$ If $n = 2k$ then $n^2 = 4k^2$, which is even.
+
+	$(\Rightarrow)$ We prove the contrapositive.  If $n$ is odd, write
+	$n = 2k+1$.  Then $n^2 = 4k^2 + 4k + 1$, which is odd.
+\end{proof}
+
+\thm[sqrt2]{The Diagonal is Incommensurable with the Side}{
+	$\sqrt{2}$ is irrational; the diagonal of a unit square is incommensurable
+	with its side.
+}
+
+\begin{proof}
+	Suppose $\sqrt{2} = p/q$ with $p,q \in \bbZ^+$ and $\gcd(p,q)=1$.
+	Squaring gives $p^2 = 2q^2$, so $p^2$ is even.
+	By \lemref{even-square}, $p$ is even; write $p = 2r$.
+	Substituting: $4r^2 = 2q^2$, hence $q^2 = 2r^2$, so $q^2$ is even,
+	and again by \lemref{even-square}, $q$ is even.
+	Then $2 \mid \gcd(p,q)$, contradicting $\gcd(p,q) = 1$.
+\end{proof}
+
+\begin{alternate-proof}
+	Suppose the ratio $p : q$ (in lowest terms) satisfies $p^2 = 2q^2$.
+	From the square of side $p$, cut off a square of side $q$ in each
+	corner.  The remaining L-shaped region has the same ratio $p : q$
+	as the original.  But its dimensions are $p - q$ and $2q - p$,
+	which are strictly smaller positive integers with $(p-q)^2 = 2(2q-p)^2$.
+	This descent never terminates — a contradiction.
+\end{alternate-proof}
+
+\wc{The Pythagorean Dogma}{
+	The early Pythagoreans held that \emph{all is number} — every ratio of
+	magnitudes is a ratio of whole numbers.  \thmref{sqrt2} shattered this
+	doctrine.  Tradition records that Hippasus of Metapontum perished at sea
+	for disclosing the existence of incommensurables.  One should not confuse
+	the beauty of a belief with its truth: the cosmos contains magnitudes that
+	no fraction can name.
+}
+
+\qs{How Close Can Rationals Get?}{
+	We have shown $\sqrt{2}$ is irrational.  Yet rational numbers are dense in
+	$\mathbb{R}$: for any $\varepsilon > 0$, does there exist $p/q \in \bbQ$
+	with $|\sqrt{2} - p/q| < \varepsilon$?  Can you find such a fraction for
+	$\varepsilon = 1/100$?  For $\varepsilon = 1/1000$?
+}
+
+\section{The Euclidean Algorithm}
+
+\dfn[gcd]{Greatest Common Divisor}{
+	The \textbf{greatest common divisor} $\gcd(a,b)$ of two positive integers
+	$a$ and $b$ is the largest positive integer dividing both.  Geometrically,
+	$\gcd(a,b)$ is the length of the longest rod that measures both $a$ and
+	$b$ without remainder — the greatest common measure of the two lengths.
+}
+
+\ex[gcd-example]{A Computation}{
+	To find $\gcd(48, 18)$: divide repeatedly, keeping the remainder.
+	\[
+		48 = 2\cdot 18 + 12,\quad
+		18 = 1\cdot 12 + 6,\quad
+		12 = 2\cdot 6 + 0.
+	\]
+	The last nonzero remainder is $6$, so $\gcd(48,18)=6$.
+}
+
+\thm[euclidean-algo]{The Euclidean Algorithm}{
+	Given positive integers $a \ge b$, repeatedly replace $(a,b)$ by
+	$(b,\, a \bmod b)$ until the remainder is zero.  The last nonzero
+	remainder equals $\gcd(a,b)$.  The algorithm terminates after at most
+	$2\log_\phi a$ steps.
+}
+
+\begin{proof-sketch}
+	Each remainder $r_k = r_{k-2} - q_k r_{k-1}$ satisfies
+	$r_k < r_{k-1}$, so the sequence of remainders is strictly
+	decreasing and reaches zero.  At each step $\gcd(r_{k-2},r_{k-1})
+	= \gcd(r_{k-1},r_k)$, so the gcd is preserved throughout.
+	The bound on the number of steps follows from the fact that two
+	consecutive remainders decrease by at least a factor of $\phi$.
+\end{proof-sketch}
+
+\thm[bezout]{Bézout's Identity}{
+	For any positive integers $a$ and $b$, there exist integers $s$ and $t$
+	(possibly negative) such that
+	\[
+		\gcd(a,b) = sa + tb.
+	\]
+}
+
+\begin{proof}
+	Let $d$ be the smallest positive element of the set
+	$S = \{xa + yb : x,y \in \bbZ\}$.  Dividing $a$ by $d$ with remainder:
+	$a = qd + r$ with $0 \le r < d$.  Then $r = a - qd \in S$, and by
+	minimality of $d$ we have $r = 0$, so $d \mid a$.  Likewise $d \mid b$.
+	Hence $d$ is a common divisor.  Any common divisor of $a$ and $b$ also
+	divides $sa + tb = d$, so $d = \gcd(a,b)$.
+\end{proof}
+
+\nt{Euclid described the algorithm as \emph{anthyphairesis} — mutual
+	subtraction.  Instead of dividing, one repeatedly removes the smaller
+	magnitude from the larger until one magnitude measures the other exactly.
+	The Greeks framed this as a geometric process on line segments rather than
+	arithmetic on integers; the key insight is the same.}
+
+\section{The Golden Ratio}
+
+\dfn[golden]{The Golden Ratio}{
+	A line segment is divided in the \textbf{golden ratio} if the ratio of
+	the whole to the larger part equals the ratio of the larger part to the
+	smaller.  Setting the larger part to $1$ and the whole to $\phi$, this
+	condition reads $\phi/1 = 1/(\phi-1)$, giving
+	\[
+		\phi^2 = \phi + 1, \qquad \phi = \frac{1+\sqrt{5}}{2} \approx 1.618\ldots
+	\]
+}
+
+\ex[pentagon]{The Diagonal of a Regular Pentagon}{
+	In a regular pentagon with side length $1$, each diagonal has length
+	$\phi$.  Moreover, any diagonal intersects two others, cutting each in the
+	golden ratio — and the inner pentagon so formed is again regular, with
+	diagonals of length $\phi^{-1}$.  This self-similar structure captured the
+	Pythagoreans, who used the pentagram as their secret symbol.
+}
+
+\thm[phi-irrational]{The Golden Ratio is Irrational}{
+	$\phi = \tfrac{1+\sqrt{5}}{2}$ is irrational.
+}
+
+\begin{proof}
+	Since $\phi^2 = \phi + 1$, if $\phi = p/q$ in lowest terms then
+	$p^2/q^2 = p/q + 1 = (p+q)/q$, giving $p^2 = q(p+q)$.  Thus
+	$q \mid p^2$.  Since $\gcd(p,q)=1$ we get $q \mid 1$, so $q=1$ and
+	$\phi = p \in \bbZ$.  But $1 < \phi < 2$, a contradiction.
+\end{proof}
+
+\lem[phi-continued]{The Continued Fraction of $\phi$}{
+	$\phi = 1 + \dfrac{1}{1+\dfrac{1}{1+\dfrac{1}{\ddots}}}$;
+	that is, $\phi = [1;1,1,1,\ldots]$ in continued fraction notation.
+}
+
+\begin{proof}
+	From $\phi = 1 + 1/\phi$ (which rearranges $\phi^2 = \phi+1$), iterating
+	the substitution $\phi \mapsto 1 + 1/\phi$ gives
+	$\phi = 1 + 1/(1+1/(1+\cdots))$.  The convergents are ratios of
+	consecutive Fibonacci numbers: $1/1, 2/1, 3/2, 5/3, 8/5, 13/8, \ldots$
+\end{proof}
+
+\cor[phi-approx]{Worst-Case Rational Approximation}{
+	Among all irrationals, $\phi$ is the \emph{hardest} to approximate by
+	rationals: for every rational $p/q$,
+	\[
+		\left|\phi - \frac{p}{q}\right| > \frac{1}{\sqrt{5}\, q^2}.
+	\]
+	No irrational has a worse approximation constant than $1/\sqrt{5}$.
+}
+
+\nt{Plato's \textit{Timaeus} constructs the cosmos from two types of right
+	triangle.  One of them, with sides $1$, $\sqrt{3}$, $2$, tiles to form
+	the equilateral triangle — the face of the tetrahedron, octahedron, and
+	icosahedron.  The icosahedron's construction relies on the regular
+	pentagon, and hence on $\phi$.  Whether Plato was aware of the
+	incommensurability of $\phi$ is unclear; the connection to
+	\thmref{phi-irrational} would not have pleased him.}
+
+%%──────────────────────────────────────────────────────────────────────
+\chapter{Primes and Perfect Numbers}
+%%──────────────────────────────────────────────────────────────────────
+
+\section{The Indivisible Numbers}
+
+\dfn[prime]{Prime Number}{
+	An integer $p \ge 2$ is \textbf{prime} if its only positive divisors are
+	$1$ and $p$ itself.  An integer $n \ge 2$ that is not prime is
+	\textbf{composite}.  By convention, $1$ is neither prime nor composite.
+}
+
+\ex[small-primes]{The First Primes}{
+	The primes begin: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, \ldots$
+	The number $2$ is the unique even prime; all larger primes are odd.
+	As the numbers grow, primes appear to thin out — which raises the
+	question Euclid answered definitively.
+}
+
+\clm[prime-divisor]{Every Integer Has a Prime Divisor}{
+	Every integer $n \ge 2$ has at least one prime divisor.
+}
+
+\begin{proof}
+	Let $p$ be the smallest divisor of $n$ greater than $1$.  Were $p$
+	composite, it would possess a divisor $d$ with $1 < d < p$, and
+	$d \mid p \mid n$ would contradict the minimality of $p$.  Hence $p$ is
+	prime.
+\end{proof}
+
+\thm[inf-primes]{Infinitude of Primes}{
+	There are infinitely many prime numbers.
+}
+
+\begin{proof}
+	Suppose for contradiction that $p_1, p_2, \ldots, p_n$ exhausts all
+	primes.  Set $N = p_1 p_2 \cdots p_n + 1$.  For each $i$, the prime
+	$p_i$ divides $p_1 \cdots p_n$ and hence does not divide $N$.  Yet
+	$N \ge 2$, so by \claimref{prime-divisor} $N$ has a prime factor — one absent
+	from our list.  Contradiction.
+\end{proof}
+
+\begin{proof-idea}
+	The number $N$ above need not itself be prime.  For instance,
+	$2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 + 1 = 30031 = 59 \times 509$.
+	The argument only requires that $N$ carries a prime factor \emph{new}
+	to the list — which it always does.
+\end{proof-idea}
+
+\section{Perfect Numbers}
+
+\dfn[perfect]{Perfect Number}{
+	A positive integer $n$ is \textbf{perfect} if it equals the sum of its
+	proper divisors.  Equivalently, writing $\sigma(n)$ for the sum of
+	\emph{all} positive divisors of $n$: $n$ is perfect iff $\sigma(n) = 2n$.
+}
+
+\ex[first-perfects]{The First Perfect Numbers}{
+	\begin{itemize}
+		\item $6 = 1 + 2 + 3$, with divisors $1,2,3,6$.
+		\item $28 = 1 + 2 + 4 + 7 + 14$, with divisors $1,2,4,7,14,28$.
+		\item $496$ and $8128$ follow next.
+	\end{itemize}
+	Nicomachus of Gerasa called perfect numbers \textit{``neither excessive
+	nor deficient, but hitting the mean between extremes''} — language
+	Socrates would recognise from his account of virtue.
+}
+
+\thm[euclid-perfect]{Euclid's Construction of Even Perfect Numbers}{
+	If $q = 2^p - 1$ is prime, then $n = 2^{p-1}(2^p - 1)$ is perfect.
+}
+
+\begin{proof}
+	Since $q$ is an odd prime, $\gcd(2^{p-1}, q) = 1$ and $\sigma$ is
+	multiplicative, so
+	\[
+		\sigma(n) = \sigma(2^{p-1})\cdot\sigma(q)
+		= \bigl(1 + 2 + \cdots + 2^{p-1}\bigr)(1 + q)
+		= (2^p - 1)\cdot 2^p
+		= 2n.
+	\]
+	Hence $n$ is perfect.
+\end{proof}
+
+\opn[odd-perfect]{The Question of Odd Perfect Numbers}{
+	Does there exist an odd perfect number?
+
+	This question has stood open since antiquity.  Euler proved any odd
+	perfect number must take the form $n = q^{4k+1}m^2$ where $q \equiv 1
+	\pmod{4}$ is prime with $q \nmid m$.  We now know any odd perfect number
+	must exceed $10^{1500}$, have at least $101$ prime factors counting
+	multiplicity, and possess no fewer than $10$ distinct prime factors.
+	None has ever been found.
+}
+
+\nt{In the \textit{Laws}, Plato proposes $5040 = 7!$ as the ideal number of
+	households in a city-state, praising it for having $60$ divisors — more
+	than any smaller number.  $\sigma(5040) = 14\,400 \ne 2 \times 5040$,
+	so $5040$ falls short of perfection.  Whether Plato noticed is not
+	recorded; one suspects Socrates would have asked.}
+
+\section{The Fundamental Theorem of Arithmetic}
+
+\thm[euclid-lemma]{Euclid's Lemma}{
+	If $p$ is prime and $p \mid ab$, then $p \mid a$ or $p \mid b$.
+}
+
+\begin{proof}
+	Suppose $p \nmid a$.  Since $p$ is prime, $\gcd(p,a)=1$.  By
+	\thmref{bezout}, there exist integers $s,t$ with $sp + ta = 1$.
+	Multiplying by $b$: $spb + tab = b$.  Now $p \mid spb$ and
+	$p \mid tab$ (since $p \mid ab$), so $p \mid b$.
+\end{proof}
+
+\cor[prime-power]{Extension to Prime Powers}{
+	If $p$ is prime and $p \mid a_1 a_2 \cdots a_k$, then $p \mid a_i$
+	for some $i \in \{1,\ldots,k\}$.
+}
+
+\begin{proof}
+	Apply \thmref{euclid-lemma} inductively: either $p \mid a_1$ or
+	$p \mid a_2 \cdots a_k$.  Repeating on the second factor terminates
+	in at most $k$ steps.
+\end{proof}
+
+\thm[fta]{Fundamental Theorem of Arithmetic}{
+	Every integer $n \ge 2$ can be written as a product of primes, and this
+	factorisation is unique up to the order of factors.
+}
+
+\begin{proof}
+	\textit{Existence.}
+	By induction: if $n$ is prime we are done.  Otherwise $n = ab$ with
+	$1 < a,b < n$, and by induction each of $a,b$ factors into primes.
+
+	\textit{Uniqueness.}
+	Suppose $p_1 p_2 \cdots p_r = q_1 q_2 \cdots q_s$.  Since $p_1$
+	divides the left side it divides the right, so by
+	\corref{prime-power} $p_1 \mid q_j$ for some $j$.  As $q_j$ is
+	prime, $p_1 = q_j$.  Cancel $p_1$ from both sides and repeat.
+	This forces $r = s$ and the $p_i$ to be a permutation of the $q_j$.
+\end{proof}
+
+\cor[sqrt-prime]{Square Roots of Primes are Irrational}{
+	For every prime $p$, $\sqrt{p}$ is irrational.
+}
+
+\begin{proof}
+	Suppose $\sqrt{p} = a/b$ in lowest terms.  Then $pb^2 = a^2$.  By
+	\thmref{fta}, the prime $p$ appears to an odd power on the left
+	(it divides $b^2$ an even number of times and contributes one extra
+	factor) but to an even power on the right.  This contradicts
+	uniqueness of factorisation.
+\end{proof}
+
+\wc{All Integers Factor, But Not Always Uniquely}{
+	In more general algebraic systems, unique factorisation can fail.
+	In $\bbZ[\sqrt{-5}]$, for instance,
+	$6 = 2 \cdot 3 = (1+\sqrt{-5})(1-\sqrt{-5})$,
+	and all four factors are irreducible.  \thmref{fta} is special to
+	$\bbZ$, and it depends critically on \thmref{euclid-lemma} — which
+	itself rests on \thmref{bezout}.  Remove any link and the chain of
+	uniqueness breaks.
+}
+
+\section{Mersenne Primes and Euler's Theorem}
+
+\dfn[mersenne]{Mersenne Prime}{
+	A \textbf{Mersenne prime} is a prime of the form $M_p = 2^p - 1$.
+	The exponent $p$ must itself be prime, as the following result shows.
+}
+
+\thm[mersenne-necessary]{Necessary Condition for Mersenne Primes}{
+	If $2^n - 1$ is prime, then $n$ is prime.
+}
+
+\begin{proof}
+	Suppose $n = ab$ with $1 < a,b < n$.  Using the factorisation
+	$x^a - 1 = (x-1)(x^{a-1}+\cdots+1)$ with $x = 2^b$:
+	\[
+		2^n - 1 = (2^b)^a - 1 = (2^b - 1)\bigl((2^b)^{a-1} + \cdots + 1\bigr).
+	\]
+	Both factors exceed $1$, so $2^n - 1$ is composite.  Contrapositive
+	gives the result.
+\end{proof}
+
+\ex[mersenne-examples]{Small Mersenne Primes and Composites}{
+	\begin{itemize}
+		\item $M_2 = 3$, $M_3 = 7$, $M_5 = 31$, $M_7 = 127$ are prime.
+		\item $M_{11} = 2047 = 23 \times 89$ is composite despite $11$ being prime.
+		      \thmref{mersenne-necessary} gives a necessary condition, not sufficient.
+		\item The largest known prime (as of 2024) is $M_{136\,279\,841}$, a number
+		      with over forty million decimal digits.
+	\end{itemize}
+}
+
+\thm[euler-perfect-converse]{Euler's Characterisation of Even Perfect Numbers}{
+	Every even perfect number has the form $2^{p-1}(2^p-1)$ where $2^p-1$
+	is prime.
+}
+
+\begin{proof-sketch}
+	Let $n = 2^{k}m$ be even and perfect with $m$ odd and $k \ge 1$.
+	Since $\sigma$ is multiplicative and $\sigma(n) = 2n$,
+	\[
+		\sigma(2^k)\,\sigma(m) = 2^{k+1}m,
+		\qquad\text{i.e.,}\quad
+		(2^{k+1}-1)\,\sigma(m) = 2^{k+1}m.
+	\]
+	Set $q = 2^{k+1}-1$ (odd).  Then $q \mid m$; write $m = qj$.
+	Substituting: $\sigma(m) = 2^{k+1}j$.  If $j > 1$, then $1, j, q, qj$
+	are four distinct divisors of $m$, giving $\sigma(m) \ge 1+j+q+qj
+	= (1+j)(1+q) > 2^{k+1}j$, a contradiction.  Hence $j=1$, $m=q$, and
+	$\sigma(m)=m+1=2^{k+1}$, forcing $q = 2^{k+1}-1$ to be prime.
+\end{proof-sketch}
+
+\opn[infinitely-many-mersenne]{Are There Infinitely Many Mersenne Primes?}{
+	It is unknown whether there are infinitely many Mersenne primes, and
+	hence infinitely many even perfect numbers.  Euclid's and Euler's
+	theorems together give a complete characterisation of even perfect
+	numbers — every one arises from a Mersenne prime — but the supply
+	of Mersenne primes remains mysterious.  The distributed computing
+	project GIMPS has found the largest known primes for decades; as of
+	2024, only $51$ Mersenne primes are known.
+}
+
+\nt{The correspondence between Mersenne primes and even perfect numbers,
+	established jointly by Euclid (\thmref{euclid-perfect}) and Euler
+	(\thmref{euler-perfect-converse}), spans two millennia.  Euclid gave
+	the construction; Euler proved there is nothing else.  That a question
+	posed in Alexandria around 300 BC was only fully answered in 1772 AD
+	speaks to the patience mathematics demands — a virtue Socrates would
+	have approved of.}
+
 \end{document}
