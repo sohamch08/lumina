@@ -120,7 +120,7 @@ Section variants are numbered within sections (`theorem`, `lemma`, …); chapter
 
 ## Referencing
 
-Pass the ref name as the optional `[ref]` argument:
+All ref macros and proof-alignment helpers live in `preamble.tex`. Pass the ref name as the optional `[ref]` argument:
 
 ```tex
 \thm[ftc]{Fundamental Theorem of Calculus}{Statement here.}
@@ -131,7 +131,7 @@ Pass the ref name as the optional `[ref]` argument:
 | Environment | Prefix | Ref macro |
 |---|---|---|
 | Theorem | `th:` | `\thmref` |
-| Lemma | `th:` |  `\lemref` |
+| Lemma | `th:` | `\lemref` |
 | Corollary | `th:` | `\corref` |
 | Claim | `th:` | `\claimref` |
 | Proposition | `th:` | `\propref` |
@@ -140,6 +140,17 @@ Pass the ref name as the optional `[ref]` argument:
 | Example | `ex:` | — |
 
 All ref macros accept an optional suffix: `\thmref[s]{ftc}` → "Theorem 1.1s".
+
+Use the `\by` family inside `align` environments to annotate proof steps:
+
+```tex
+\by{Theorem 1.1}      % &[By Theorem 1.1]
+\byt{ftc}             % &[By Theorem 1.1]   (auto-linked via \thmref)
+\byl{key}             % &[By Lemma X.X]
+\byc{key}             % &[By Corollary X.X]
+\byo{key}             % &[By Observation X]
+\bye{eq-label}        % &[By (X.X)]          (equation ref)
+```
 
 ---
 
@@ -189,21 +200,15 @@ Greek shorthand: `\al` `\gm` `\dl` `\eps` `\veps` `\lm` `\sg` `\vph` `\om` (and 
 ### General Macros — [`macros.tex`](macros.tex)
 
 ```tex
-\thmref[s]{ftc}           % Theorem 1.1.1s  (optional suffix)
-\lemref[s]{key}           % Lemma 2.3.1s  
-\corref[s]{key}           % Corollary 1.4.1s
-\propref[s{key}           % Proposition 2.1.1s
-\obsref[s]{key}           % Observation 5s
-\defref[s]{key}           % Definition 2.1.1s
-
-\by{Theorem 1.1}          % &[By Theorem 1.1]  (proof alignment)
-\byt{ftc}                 % &[By Theorem 1.1]  (auto-linked)
-\byl{key} \byc{key}       % &[By Lemma/Corollary ...]
-
 \Leg{a}{p}                % Legendre symbol (a/p)
 \Tfae                     % "The following are equivalent:"
 \quotient{G}{H}           % G / H  (inline quotient)
 \matr{a & b \\ c & d}     % matrix without brackets
+\ctr                      % contradiction lightning bolt  (requires marvosym)
+\ov{x}                    % \overline{x}
+\del{f}{x}                % partial derivative ∂f/∂x
+\mat{a & b \\ c & d}      % matrix with brackets
+\comb{n}{k}               % binomial coefficient
 ```
 
 ---
@@ -212,7 +217,7 @@ Greek shorthand: `\al` `\gm` `\dl` `\eps` `\veps` `\lm` `\sg` `\vph` `\om` (and 
 
 | File | Purpose |
 |---|---|
-| [`preamble.tex`](preamble.tex) | Core theme — colors, theorem boxes, ToC, title formats |
+| [`preamble.tex`](preamble.tex) | Core theme — colors, theorem boxes, ref macros, proof-alignment helpers, ToC, title formats |
 | [`preamble-article.tex`](preamble-article.tex) | Article variant (no chapters) |
 | [`preamble-formal.tex`](preamble-formal.tex) | Formal/report variant |
 | [`letterfonts.tex`](letterfonts.tex) | Font shorthands |
