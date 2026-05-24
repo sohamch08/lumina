@@ -29,7 +29,7 @@ Lumina has been used to typeset several lecture note sets and a full MSc thesis 
 </tr>
 <tr>
 <td><b>Algorithms</b> (CSS.201.1, TIFR 2024)</td>
-<td><a href="https://github.com/sohamch08/Algorithms-CSS.201.1-TIFR-2024"><img src="https://img.shields.io/badge/Algorithms--CSS.201.1-5E81AC?style=for-the-badge&logo=github&logoColor=white"></a></td>
+<td><a href="https://github.com/sohamch08/algorithms-tifr"><img src="https://img.shields.io/badge/Algorithms--CSS.201.1-5E81AC?style=for-the-badge&logo=github&logoColor=white"></a></td>
 </tr>
 <tr>
 <td><b>Complexity, Coding Theory, and more</b></td>
