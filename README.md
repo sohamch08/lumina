@@ -12,7 +12,7 @@
 
 <br>
 
-[![License](https://img.shields.io/github/license/sohamch08/lumina?style=for-the-badge&color=5E81AC&labelColor=1C1C2E)](LICENSE)&ensp;[![LaTeX](https://img.shields.io/badge/engine-pdfLaTeX-008080?style=for-the-badge&logo=latex&logoColor=white&labelColor=1C1C2E)](https://www.latex-project.org/)&ensp;[![Stars](https://img.shields.io/github/stars/sohamch08/lumina?style=for-the-badge&color=EBCB8B&labelColor=1C1C2E)](https://github.com/sohamch08/lumina/stargazers)&ensp;[![Demo PDF](https://img.shields.io/badge/demo-main.pdf-BF616A?style=for-the-badge&labelColor=1C1C2E&logo=adobeacrobatreader&logoColor=white)](main.pdf)
+[![LaTeX](https://img.shields.io/badge/engine-pdfLaTeX-008080?style=for-the-badge&logo=latex&logoColor=white&labelColor=1C1C2E)](https://www.latex-project.org/)&ensp;[![Stars](https://img.shields.io/github/stars/sohamch08/lumina?style=for-the-badge&color=EBCB8B&labelColor=1C1C2E)](https://github.com/sohamch08/lumina/stargazers)&ensp;[![Demo PDF](https://img.shields.io/badge/demo-main.pdf-BF616A?style=for-the-badge&labelColor=1C1C2E&logo=adobeacrobatreader&logoColor=white)](main.pdf)
 
 <br>
 
