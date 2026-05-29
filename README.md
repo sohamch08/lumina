@@ -39,7 +39,7 @@
 
 ## ◈ &ensp; Demo
 
-The file [`main.tex`](main.tex) is a fully worked example using the theme — two chapters of Greek mathematics covering commensurability, irrationality, and prime numbers. The compiled output is [`main.pdf`](main.pdf).
+The file [`main.tex`](main.tex) is a fully worked example using the theme. Two chapters of Greek mathematics covering commensurability, irrationality, and prime numbers. The compiled output is [`main.pdf`](main.pdf).
 
 ---
 
@@ -70,10 +70,10 @@ Lumina has been used to typeset several lecture note sets and a full MSc thesis 
 
 ## ◈ &ensp; Title Page
 
-The gradient cover is built from two files: `title.tex` (the template — never needs editing) and `config.tex` (your per-document settings). **Only `config.tex` needs to be edited.** Fill in your details and the cover builds itself.
+The gradient cover is built from two files: `title.tex` (the template never needs editing) and `config.tex` (your per-document settings). **Only `config.tex` needs to be edited.** Fill in your details and the cover builds itself.
 
 <details>
-<summary><b> config.tex — full template</b></summary>
+<summary><b> config.tex: full template</b></summary>
 
 <br>
 
@@ -105,7 +105,7 @@ The gradient cover is built from two files: `title.tex` (the template — never 
 </details>
 
 <details>
-<summary><b> main.tex — minimal setup</b></summary>
+<summary><b> main.tex: minimal setup</b></summary>
 
 <br>
 
