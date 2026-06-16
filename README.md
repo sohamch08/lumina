@@ -12,18 +12,18 @@
 
 <br>
 
-[![LaTeX](https://img.shields.io/badge/engine-pdfLaTeX-008080?style=for-the-badge&logo=latex&logoColor=white&labelColor=1C1C2E)](https://www.latex-project.org/)&ensp;[![Stars](https://img.shields.io/github/stars/sohamch08/lumina?style=for-the-badge&color=EBCB8B&labelColor=1C1C2E)](https://github.com/sohamch08/lumina/stargazers)&ensp;[![Demo PDF](https://img.shields.io/badge/demo-main.pdf-BF616A?style=for-the-badge&labelColor=1C1C2E&logo=adobeacrobatreader&logoColor=white)](main.pdf)
+[![LaTeX](https://img.shields.io/badge/engine-pdfLaTeX-008080?style=for-the-badge&logo=latex&logoColor=white&labelColor=1C1C2E)](https://www.latex-project.org/)&ensp;[![Demo PDF](https://img.shields.io/badge/demo-main.pdf-BF616A?style=for-the-badge&labelColor=1C1C2E&logo=adobeacrobatreader&logoColor=white)](main.pdf)
 
 <br>
 
 </div>
 
-◆&ensp;**Color-coded theorem boxes** &nbsp;—&nbsp; 7 environments, section & chapter variants  
-◆&ensp;**Gradient cover pages** &nbsp;—&nbsp; per-document identity from one config file  
-◆&ensp;**TikZ-powered table of contents** &nbsp;—&nbsp; accent-unified with chapter bars  
-◆&ensp;**Smart ref macros** &nbsp;—&nbsp; hyperlinked `\thmref`, `\lemref`, `\defref`, …  
-◆&ensp;**10+ proof environments** &nbsp;—&nbsp; sketch · idea · alternate · combinatorial · algebraic  
-◆&ensp;**Two-sided headers** &nbsp;—&nbsp; chapter mark on right pages, section mark on left
+◆&ensp;**Color-coded theorem boxes**&nbsp;: &nbsp; 7 environments, section & chapter variants  
+◆&ensp;**Gradient cover pages**&nbsp;: &nbsp; per-document identity from one config file  
+◆&ensp;**TikZ-powered table of contents**&nbsp;: &nbsp; accent-unified with chapter bars  
+◆&ensp;**Smart ref macros**&nbsp;: &nbsp; hyperlinked `\thmref`, `\lemref`, `\defref`, …  
+◆&ensp;**10+ proof environments**&nbsp;: &nbsp; sketch · idea · alternate · combinatorial · algebraic  
+◆&ensp;**Two-sided headers**&nbsp;: &nbsp; chapter mark on right pages, section mark on left
 
 ---
 
