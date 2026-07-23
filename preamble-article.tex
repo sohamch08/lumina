@@ -2,62 +2,115 @@
 % PACKAGE IMPORTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry} % I woulld suggest dont play with the margin. It kind of ruins the contents page.
-\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools,titlesec}
+\usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry} 
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{bookmark}
 \usepackage[inline]{enumitem}
-\usepackage{hyperref,theoremref}
+\usepackage{cancel}
+\usepackage{hyperref}
+\usepackage{theoremref}
 \hypersetup{
-	colorlinks=true, linkcolor=doc!80, urlcolor=doc!80, citecolor=mydefinitfr!80!black,
+	colorlinks=true, linkcolor=mytheoremfr, urlcolor=mytheoremfr, citecolor=mydefinitfr!80!black,
 	bookmarksnumbered=true,
 	bookmarksopen=true
 }
 \usepackage[most,many,breakable]{tcolorbox}
-\usepackage{xcolor}
+\usepackage[svgnames]{xcolor}
 \usepackage{graphicx}
-%\graphicspath{ {./images/} } %give your suitable image path
+\graphicspath{ {./images/} }
 \usepackage{varwidth}
 \usepackage{authblk}
 \usepackage{nameref}
-\usepackage{multicol,array,multirow}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{multirow}
 \usepackage{tikz-cd}
 \usepackage{cancel}
+\usepackage{caption} 
 \usepackage{pgfplots}
 %\usepackage[Sonny]{fncychap}
 \usepackage{mathpazo}
-% Use the libertine package for the Libertine font
 \usepackage{libertine}
 \usepackage[libertine]{newtxmath}
 \usepackage{mathrsfs} 
 \usepackage{bbm}
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 \usepackage{fancyhdr}
-%\pagestyle{fancy}
+\setlength{\headheight}{12.4pt}
+\addtolength{\topmargin}{-0.4pt}
+\usepackage{fontawesome5}
+\usepackage{changepage}
+\usepackage{marvosym}
+\usepackage{optidef}
+\usepackage{nicefrac}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{faktor}
+\usepackage{etoolbox}
+\usepackage{todonotes}
+\usepackage{ragged2e}
+\usepackage{xhfill}
+\usepackage{imakeidx}
+\makeindex[columns=2, title=Index, intoc]
+\usepackage[missing=Untracked]{gitinfo2} % requires git hooks; see gitinfo2 docs
+\usepackage{anyfontsize}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, shapes, positioning, calc, arrows, arrows.meta, shadows.blur, automata, bending, quotes, overlay-beamer-styles}
+\usepackage{titletoc}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{environ}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAGE LAYOUT & HEADERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Enable two-sided header logic (LE/RO distinction) even when the document
+% class is loaded without the twoside option.
+\makeatletter
+\@twosidetrue
+\makeatother
+
 \fancypagestyle{plain}{%
-	\fancyhf{}% Clear all header and footer fields
-	\renewcommand{\headrulewidth}{0pt}% No header rule
-	\renewcommand{\footrulewidth}{0pt}% No footer rule
+	\renewcommand{\headrulewidth}{0pt}%
+	\fancyhf{}%
+	\fancyfoot[C]{\textcolor{\gitinfonotecolour}{\gitinfonote}}%
 }
-\fancyhf{}% Clear all header and footer fields
-\renewcommand{\headrulewidth}{1pt}% Set header rule width
-\fancyhead[LE]{\itshape\textsc{\nouppercase\rightmark}}% Left even page header
-\fancyhead[RO]{\itshape\textsc{\nouppercase\leftmark}}% Right odd page header
-\fancyfoot{}% Clear footer
-\fancyhead[RE,LO]{\itshape Page \thepage}% Even page right and odd page left headers
-
-
-\DeclareMathOperator{\supp}{supp}
-\DeclareMathOperator{\rk}{Rank}
-\DeclareMathOperator{\conv}{Conv}
+\fancypagestyle{fancy}{
+	\fancyhead{}
+	\renewcommand{\headrulewidth}{1pt}
+	\fancyhead[LE]{\nouppercase\rightmark}
+	\fancyhead[RO]{\leftmark} % CO Centered Odd
+	\fancyfoot{}
+	\fancyhead[RE,LO]{\itshape Page \thepage}
+	% \fancyfoot[C]{\textcolor{\gitinfonotecolour}{\gitinfonote}}%
+}
+\makeatletter
+\renewcommand{\sectionmark}[1]{%
+	\markboth{%
+		\ifnum\c@secnumdepth>\m@ne
+			\textcolor{mytheoremfr}{\S\ \thesection\ \textbar}\ \textcolor{black}{#1}%
+		\else
+			#1%
+		\fi
+	}{}%
+}
+\def\subsectionmark#1{%
+	\markright{%
+		\ifnum\c@secnumdepth>\z@
+			\thesubsection\ %
+		\fi
+		#1}}
+\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COLORS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usetikzlibrary{ shapes.geometric }
-\usetikzlibrary{calc}
-\usepackage{anyfontsize}
 \definecolor{doc}{RGB}{0,60,110}
 \definecolor{myg}{RGB}{56, 140, 70}
 \definecolor{myb}{RGB}{45, 111, 177}
@@ -80,16 +133,76 @@
 \definecolor{light-gray}{gray}{0.95}
 \definecolor{Emerald}{HTML}{00A99D}
 \definecolor{RoyalBlue}{HTML}{0071BC}
+\definecolor{gitaccent}{RGB}{100,180,255}
+\definecolor{gitdim}{RGB}{130,130,145}
+\definecolor{gitmid}{RGB}{170,170,190}
 
 \renewcommand{\qed}{\ensuremath{\blacksquare}}
 
-\newtheorem*{observation*}{Observation}
-\newtheorem*{assumption*}{Assumption}
-\newtheorem{observation}{Observation}
-\newtheorem{fact}[observation]{Fact}
-\newtheorem{assumption}{Assumption}[section]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GIT INFO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newcommand{\gitinfonotecolour}{gitdim}
 
+\newcommand{\gitsep}{%
+	\textcolor{mytheoremfr!80!white}{$\mid$}%
+}
+
+% Override \gitrepo in your document preamble for a different repo link
+\newcommand{\gitrepo}{sohamch08/lumina}
+
+\newcommand{\gitinfonote}{%
+	\texttt{\footnotesize%
+		\textcolor{gitaccent}{\normalfont}\,%
+		\href{https://github.com/\gitrepo}{%
+			\textcolor{mytheoremfr!80!white}{\faGithub\,\texttt{\textup{\gitrepo}}}%
+		}%
+		\;\gitsep\;%
+		\textcolor{myr!80!white}{\normalfont\faGit*}\,%
+		\textcolor{gitdim}{\texttt{\gitAbbrevHash}}%
+		\;\gitsep\;%
+		\textcolor{myg}{\normalfont\faCodeBranch}\,%
+		\textcolor{gitdim}{\texttt{\gitBranch}}%
+		\;\gitsep\;%
+		\textcolor{mytheoremfr!80!white}{\normalfont\faCalendar}\,%
+		\textcolor{gitdim}{\texttt{\gitAuthorIsoDate}}%
+	}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% UTILITY MACROS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\providecommand*{\Autoref}[1]{%
+	\begingroup
+	\def\chapterautorefname{Chapter}%
+	\def\sectionautorefname{Section}%
+	\def\subsectionautorefname{Subsection}%
+	\def\subsubsectionautorefname{Subsubsection}%
+	\def\figureautorefname{Figure}%
+	\def\tableautorefname{Table}%
+	\def\equationautorefname{Equation}%
+	\def\lstnumberautorefname{Line}%
+	\autoref{#1}%
+	\endgroup
+}
+
+\makeatletter
+\newcommand\RedeclareMathOperator{%
+	\@ifstar{\def\rmo@s{m}\rmo@redeclare}{\def\rmo@s{o}\rmo@redeclare}%
+}
+\newcommand\rmo@redeclare[2]{%
+	\begingroup \escapechar\m@ne\xdef\@gtempa{{\string#1}}\endgroup
+	\expandafter\@ifundefined\@gtempa
+	{\@latex@error{\noexpand#1undefined}\@ehc}%
+	\relax
+	\expandafter\rmo@declmathop\rmo@s{#1}{#2}}
+\newcommand\rmo@declmathop[3]{%
+	\DeclareRobustCommand{#2}{\qopname\newmcodes@#1{#3}}%
+}
+\@onlypreamble\RedeclareMathOperator
+\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TCOLORBOX SETUPS
@@ -101,7 +214,7 @@
 %================================
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=subsection]{Theorem}{Theorem}
+\newtcbtheorem[number within=subsection]{theorem}{Theorem}
 {%
 	enhanced,
 	breakable,
@@ -111,7 +224,7 @@
 	borderline west = {2pt}{0pt}{mytheoremfr},
 	sharp corners,
 	detach title,
-	before upper = \tcbtitle\par\smallskip,
+	before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em},
 	coltitle = mytheoremfr,
 	fonttitle = \bfseries\sffamily,
 	description font = \mdseries,
@@ -121,7 +234,7 @@
 {th}
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=section]{theorem}{Theorem}
+\newtcbtheorem[number within=section]{theoremCh}{Theorem}
 {%
 	enhanced,
 	breakable,
@@ -131,7 +244,7 @@
 	borderline west = {2pt}{0pt}{mytheoremfr},
 	sharp corners,
 	detach title,
-	before upper = \tcbtitle\par\smallskip,
+	before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em},
 	coltitle = mytheoremfr,
 	fonttitle = \bfseries\sffamily,
 	description font = \mdseries,
@@ -139,7 +252,6 @@
 	segmentation style={solid, mytheoremfr},
 }
 {th}
-
 
 \tcbuselibrary{theorems,skins,hooks}
 \newtcolorbox{Theoremcon}
@@ -153,14 +265,14 @@
 	,sharp corners
 	,description font = \mdseries
 	,separator sign none
+	,fontupper = \itshape
 }
 
-
 %================================
-% Corollery
+% COROLLARY
 %================================
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[use counter from=Theorem, number within=subsection]{corolary}{Corollary}
+\newtcbtheorem[use counter from=theorem, number within=subsection]{corollary}{Corollary}
 {%
 	enhanced
 	,breakable
@@ -170,30 +282,16 @@
 	,borderline west = {2pt}{0pt}{myp!60!black}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip
+	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
 	,coltitle = myp!60!black
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
 	,separator sign none
 	,segmentation style={solid, myp!85!black}
-	%	enhanced
-	%	,breakable
-	%	,colback = mytheorembg
-	%	,frame hidden
-	%	,boxrule = 0sp
-	%	,borderline west = {2pt}{0pt}{mytheoremfr}
-	%	,sharp corners
-	%	,detach title
-	%	,before upper = \tcbtitle\par\smallskip
-	%	,coltitle = mytheoremfr
-	%	,fonttitle = \bfseries\sffamily
-	%	,description font = \mdseries
-	%	,separator sign none
-	%	,segmentation style={solid, mytheoremfr}
 }
 {th}
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[use counter from=Theorem, number within=section]{corollary}{Corollary}
+\newtcbtheorem[use counter from=theoremCh, number within=section]{corollaryCh}{Corollary}
 {%
 	enhanced
 	,breakable
@@ -203,7 +301,7 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip
+	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -217,7 +315,7 @@
 %================================
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[use counter from=Theorem, number within=subsection]{lemma}{Lemma}
+\newtcbtheorem[use counter from=theorem, number within=subsection]{lemma}{Lemma}
 {%
 	enhanced
 	,breakable
@@ -227,7 +325,7 @@
 	,borderline west = {2pt}{0pt}{myg}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip
+	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
 	,coltitle = myg!85!black
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -236,8 +334,7 @@
 }
 {th}
 
-
-\newtcbtheorem[use counter from=theorem, number within=section]{Lemma}{Lemma}
+\newtcbtheorem[use counter from=theoremCh, number within=section]{lemmaCh}{Lemma}
 {%
 	enhanced
 	,breakable
@@ -247,7 +344,7 @@
 	,borderline west = {2pt}{0pt}{myg}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip
+	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
 	,coltitle = myg!85!black
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -271,7 +368,7 @@
 	,borderline west = {2pt}{0pt}{myg}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip
+	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
 	,coltitle = myg!85!black
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -280,8 +377,7 @@
 }
 {th}
 
-
-\newtcbtheorem[number within=section]{Claim}{Claim}
+\newtcbtheorem[number within=section]{claimCh}{Claim}
 {%
 	enhanced
 	,breakable
@@ -291,7 +387,7 @@
 	,borderline west = {2pt}{0pt}{myg}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip
+	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
 	,coltitle = myg!85!black
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -304,7 +400,7 @@
 % EXAMPLE BOX
 %================================
 
-\newtcbtheorem[number within=subsection]{Example}{Example}
+\newtcbtheorem[number within=subsection]{example}{Example}
 {%
 	colback = myexamplebg
 	,breakable
@@ -321,7 +417,7 @@
 }
 {ex}
 
-\newtcbtheorem[number within=section]{example}{Example}
+\newtcbtheorem[number within=section]{exampleCh}{Example}
 {%
 	colback = myexamplebg
 	,breakable
@@ -342,9 +438,9 @@
 % DEFINITION BOX
 %================================
 
-\newtcbtheorem[number within=subsection]{Definition}{Definition}{enhanced,
+\newtcbtheorem[number within=subsection]{definition}{Definition}{enhanced,
 	before skip=2mm,after skip=2mm, colback=red!5,colframe=red!80!black,boxrule=0.5mm,
-	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
+	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,colbacktitle=red!75!black,
 	boxed title style={frame code={
 			\path[fill=tcbcolback]
 			([yshift=-1mm,xshift=-1mm]frame.north west)
@@ -361,12 +457,14 @@
 		},interior engine=empty,
 	},
 	fonttitle=\bfseries,
+	before upper=\noindent\setlength{\parindent}{1.5em},
+	fontupper=\itshape,
 	title={#2},#1}{def}
-\newtcbtheorem[number within=section]{definition}{Definition}{enhanced,
+\newtcbtheorem[number within=section]{definitionCh}{Definition}{enhanced,
 	before skip=2mm,after skip=2mm, colback=red!5,colframe=red!80!black,boxrule=0.5mm,
-	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
+	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm, colbacktitle=red!75!black,
 	boxed title style={frame code={
-			\path[fill=tcbcolback]
+			\path[fill=red!75!black]
 			([yshift=-1mm,xshift=-1mm]frame.north west)
 			arc[start angle=0,end angle=180,radius=1mm]
 			([yshift=-1mm,xshift=1mm]frame.north east)
@@ -381,16 +479,17 @@
 		},interior engine=empty,
 	},
 	fonttitle=\bfseries,
+	before upper=\noindent\setlength{\parindent}{1.5em},
+	fontupper=\itshape,
 	title={#2},#1}{def}
-
 
 %================================
 % OPEN QUESTION BOX
 %================================
 
-\newtcbtheorem[number within=subsection]{open}{Open Question}{enhanced,
+\newtcbtheorem[number within=subsection]{openq}{Open Question}{enhanced,
 	before skip=2mm,after skip=2mm, colback=myp!5,colframe=myp!80!black,boxrule=0.5mm,
-	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
+	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm, colbacktitle=myp!75!black,
 	boxed title style={frame code={
 			\path[fill=tcbcolback]
 			([yshift=-1mm,xshift=-1mm]frame.north west)
@@ -407,10 +506,12 @@
 		},interior engine=empty,
 	},
 	fonttitle=\bfseries,
+	before upper=\noindent\setlength{\parindent}{1.5em},
+	fontupper=\itshape,
 	title={#2},#1}{def}
-\newtcbtheorem[number within=section]{Open}{Open Question}{enhanced,
+\newtcbtheorem[number within=section]{openqCh}{Open Question}{enhanced,
 	before skip=2mm,after skip=2mm, colback=myp!5,colframe=myp!80!black,boxrule=0.5mm,
-	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
+	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm, colbacktitle=myp!75!black,
 	boxed title style={frame code={
 			\path[fill=tcbcolback]
 			([yshift=-1mm,xshift=-1mm]frame.north west)
@@ -427,16 +528,16 @@
 		},interior engine=empty,
 	},
 	fonttitle=\bfseries,
+	before upper=\noindent\setlength{\parindent}{1.5em},
+	fontupper=\itshape,
 	title={#2},#1}{def}
-
-
 
 %================================
 % EXERCISE BOX
 %================================
 
 \makeatletter
-\newtcbtheorem[number within=subsection]{problem}{Problem}{enhanced,
+\newtcbtheorem[number within=section]{problem}{Problem}{enhanced,
 	breakable,
 	colback=white,
 	colframe=myb!80!black,
@@ -461,11 +562,9 @@
 }{def}
 \makeatother
 
-
 %================================
-% Question BOX
+% QUESTION BOX
 %================================
-
 
 \makeatletter
 \newtcbtheorem[number within=section]{question}{Question}{enhanced,
@@ -513,13 +612,10 @@
 	#1
 }{def}
 
-
-
 %================================
 % NOTE BOX
 %================================
 
-\usetikzlibrary{arrows,calc,shadows.blur}
 \tcbuselibrary{skins}
 \newtcolorbox{note}[1][]{%
 	enhanced jigsaw,
@@ -555,58 +651,153 @@
 	#1,
 }
 
+%================================
+% ALGORITHM PROBLEM
+%================================
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% SELF MADE COMMANDS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%%% The environments which are appears in pairs one of them is for the chapters which have sections whose environment name starts with small letter and the other is for chapters which do not have sections whose environment name starts with capital letter. In the short command for the latter I used the letter 'c' to represent it should be use if it is not under a section
-%
-%%% Short commands for environments goes like this
-%%% \<command name>[<reference name>]{<heading>}{<description>}
-%%% For example in theorem for suppose Fundamental Theorem of Calculus i will write like this
-%%% \thm[ftc]{Fundamental Theorem of Calculus}{Theorem Statement}
-%
-%\NewDocumentCommand{\EqM}{ m O{black} m}{%
-%	\tikz[remember picture, baseline, anchor=base] 
-%	\node[inner sep=0pt, outer sep=3pt, text=#2] (#1) {%
-%		\ensuremath{#3}%
-%	};    
-%}
+\makeatletter
+\newcommand{\problemtitle}[1]{\gdef\@problemtitle{\scshape #1}}% Store problem title
+\newcommand{\probleminput}[1]{\gdef\@probleminput{#1}}% Store problem input
+\newcommand{\problemquestion}[1]{\gdef\@problemquestion{#1}}% Store problem question
+\NewEnviron{algoprob}{
+	\problemtitle{}\probleminput{}\problemquestion{}% Default input is empty
+	\BODY% Parse input
+	\par\addvspace{.5\baselineskip}
+	\noindent
+	\begin{tabularx}{\textwidth}{@{\hspace{\parindent}} l X c}
+		\multicolumn{2}{@{\hspace{\parindent}}l}{\@problemtitle} \\% Title
+		\textbf{Input:} & \@probleminput \\% Input
+		\textbf{Question:} & \@problemquestion% Question
+	\end{tabularx}
+	\par\addvspace{.5\baselineskip}
+}
+\makeatother
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SHORT COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% The environments appear in pairs. The plain (lowercase) environment is numbered within the subsection and is meant for content that lives under a subsection. The 'Ch'-suffixed environment is numbered within the section and is meant for content placed directly under a section (not inside a subsection). The matching short command uses the letter 'c' to indicate this section-level variant.
 
-\newcommand{\thm}[3][]{\begin{Theorem}{#2}{#1}#3\end{Theorem}}
-\newcommand{\cor}[3][]{\begin{corolary}{#2}{#1}#3\end{corolary}}
+%% Short commands for environments goes like this
+%% \<command name>[<reference name>]{<heading>}{<description>}
+%% For example in theorem for suppose Fundamental Theorem of Calculus i will write like this
+%% \thm[ftc]{Fundamental Theorem of Calculus}{Theorem Statement}
+
+\NewDocumentCommand{\EqM}{ m O{black} m}{%
+	\tikz[remember picture, baseline, anchor=base] 
+	\node[inner sep=0pt, outer sep=3pt, text=#2] (#1) {%
+		\ensuremath{#3}%
+	};    
+}
+
+\newcommand{\thm}[3][]{\begin{theorem}{#2}{#1}#3\end{theorem}}
+\newcommand{\thmc}[3][]{\begin{theoremCh}{#2}{#1}#3\end{theoremCh}}
+\newcommand{\cor}[3][]{\begin{corollary}{#2}{#1}#3\end{corollary}}
+\newcommand{\corc}[3][]{\begin{corollaryCh}{#2}{#1}#3\end{corollaryCh}}
 \newcommand{\lem}[3][]{\begin{lemma}{#2}{#1}#3\end{lemma}}
+\newcommand{\lemc}[3][]{\begin{lemmaCh}{#2}{#1}#3\end{lemmaCh}}
 \newcommand{\clm}[3][]{\begin{claim}{#2}{#1}#3\end{claim}}
+\newcommand{\clmc}[3][]{\begin{claimCh}{#2}{#1}#3\end{claimCh}}
+\newcommand{\wc}[3][]{\begin{wconc}{#2}{#1}\setlength{\parindent}{1cm}#3\end{wconc}}
 \newcommand{\thmcon}[1]{\begin{Theoremcon}{#1}\end{Theoremcon}}
-\newcommand{\ex}[3][]{\begin{Example}{#2}{#1}#3\end{Example}}
-\newcommand{\dfn}[3][]{\begin{Definition}[colbacktitle=red!75!black]{#2}{#1}#3\end{Definition}}
-\newcommand{\opn}[3][]{\begin{open}[colbacktitle=myp!75!black]{#2}{#1}#3\end{open}}
+\newcommand{\ex}[3][]{\begin{example}{#2}{#1}#3\end{example}}
+\newcommand{\exc}[3][]{\begin{exampleCh}{#2}{#1}#3\end{exampleCh}}
+\newcommand{\dfn}[3][]{\begin{definition}{#2}{#1}#3\end{definition}}
+\newcommand{\dfnc}[3][]{\begin{definitionCh}{#2}{#1}#3\end{definitionCh}}
+\newcommand{\opn}[3][]{\begin{openq}{#2}{#1}#3\end{openq}}
+\newcommand{\opnc}[3][]{\begin{openqCh}{#2}{#1}#3\end{openqCh}}
 \newcommand{\pr}[3][]{\begin{problem}{#2}{#1}#3\end{problem}}
+\newcommand{\qs}[3][]{\begin{question}{#2}{#1}#3\end{question}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REFERENCE MACROS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% All ref macros accept an optional suffix argument:
+%%   \thmref[s]{key}  →  "Theorem 1.1s"
+%% Labels follow the prefix convention set by \newtcbtheorem:
+%%   th:  for theorem / lemma / corollary / claim / proposition
+%%   def: for definition / open question / exercise
+%%   (raw label for observation)
 
+\newcommand{\thmref}[2][]{%
+	\hyperref[th:#2]{Theorem~\ref{th:#2}#1}%
+}
+\newcommand{\propref}[2][]{%
+	\hyperref[th:#2]{Proposition~\ref{th:#2}#1}%
+}
+\newcommand{\lmref}[2][]{%
+	\hyperref[th:#2]{Lemma~\ref{th:#2}#1}%
+}
+\newcommand{\lemref}[2][]{%
+	\hyperref[th:#2]{Lemma~\ref{th:#2}#1}%
+}
+\newcommand{\corref}[2][]{%
+	\hyperref[th:#2]{Corollary~\ref{th:#2}#1}%
+}
+\newcommand{\claimref}[2][]{%
+	\hyperref[th:#2]{Claim~\ref{th:#2}#1}%
+}
+\newcommand{\obsref}[2][]{%
+	\hyperref[#2]{Observation~\ref{#2}#1}%
+}
+\newcommand{\defref}[2][]{%
+	\hyperref[def:#2]{Definition~\ref{def:#2}#1}%
+}
 
-\renewenvironment{proof}{\noindent{\it \textbf{Proof:}}\hspace*{1em}}{\hfill\qed\bigskip\\}
-\newenvironment{proof-sketch}{\noindent{\it \bf Sketch of Proof:}\hspace*{1em}}{\hfill\qed\bigskip\\}
-\newenvironment{proof-idea}{\noindent{\it \bf Proof Idea:}\hspace*{1em}}{\hfill\qed\bigskip\\}
-\newenvironment{proof-of-theorem}[1]{\noindent{\it \bf Proof of \thmref{#1}:}\hspace*{1em}}{\hfill\qed\bigskip\\}
-\newenvironment{proof-of-lemma}[1]{\noindent{\it \bf Proof of Lemma \lemref{#1}:}\hspace*{1em}}{\hfill\qed\bigskip\\}
-\newenvironment{proof-of-corollary}[1]{\noindent{\it \bf Proof of \corrref{#1}:}\hspace*{1em}}{\hfill\qed\bigskip\\}
-\newenvironment{proof-attempt}{\noindent{\it \bf Proof Attempt:}\hspace*{1em}}{\hfill\qed\bigskip\\}
-\newenvironment{alternate-proof}[1][]{\noindent{\textbf{\textbf{Alternate Proof }\thmref{#1}:}}\hspace*{1em}}{\hfill\qed\bigskip\\}
-\newenvironment{proofof}[1]{\noindent{\bf Proof:}
-	of #1:\hspace*{1em}}{\hfill\qed\bigskip\\}
-\newenvironment{remark}{\noindent{\bf Remark:}\hspace*{1em}}{\bigskip\\}
+%% Proof-alignment helpers — use inside align/align* environments:
+%%   \by{Theorem 1.1}   →  &[By Theorem 1.1]
+%%   \byt{key}          →  &[By Theorem X.X]  (auto-linked)
+\newcommand{\by}[1]{&[\text{By #1}]}
+\newcommand{\byt}[2][]{\by{\thmref[#1]{#2}}}
+\newcommand{\byl}[2][]{\by{\lmref[#1]{#2}}}
+\newcommand{\byc}[2][]{\by{\corref[#1]{#2}}}
+\newcommand{\byo}[2][]{\by{\obsref[#1]{#2}}}
+\newcommand{\bye}[1]{\by{\eqref{eq:#1}}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AMSTHM ENVIRONMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem*{observation*}{Observation}
+\newtheorem*{goal*}{Goal}
+\newtheorem*{idea*}{Idea}
+\newtheorem*{assumption*}{Assumption}
+\newtheorem{observation}{Observation}
+\newtheorem{fact}[observation]{Fact}
+\newtheorem{assumption}{Assumption}[section]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROOF ENVIRONMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewenvironment{proof}{\noindent{\textit{\textbf{Proof:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{proofmany}[1]{\noindent{\textbf{\textit{Proof #1:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{combi-proof}{\noindent{\textbf{\textit{Combinatorial Proof:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{alg-proof}{\noindent{\textbf{\textit{Algebraic Proof:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{proof-sketch}{\noindent{\textbf{\textit{Sketch of Proof:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{proof-idea}{\noindent{\textbf{\textit{Proof Idea:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{proof-of-theorem}[1][]{\noindent{\textbf{\textit{Proof of \thmref{#1}:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{proof-of-lemma}[1][]{\noindent{\textbf{\textit{Proof of \lmref{#1}:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{proof-of-corollary}[1][]{\noindent{\textbf{\textit{Proof of \corref{#1}:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{proof-attempt}{\noindent{\textbf{\textit{Proof Attempt:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{alternate-proof}[1][]{\noindent{\textit{\textbf{Alternate Proof #1:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{anotherproof}{\noindent{\textit{\textbf{Another Proof:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{proofof}[1]{\noindent{\textbf{\textit{Proof of #1:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{remark}{\noindent\textbf{Remark:}\hspace*{1em}}{\bigskip\\}
+\newenvironment{idea}{\noindent\textbf{Idea: }}{\bigskip\\}
+\newenvironment{want}{\noindent\textbf{Want: }}{\bigskip\\}
+\newenvironment{enough}{\noindent\textbf{Enough to Show: }}{\bigskip\\}
 
 %% The proof environment actually multipurpose. For a proof many things actually play. Proof idea. Proof overview. Main pproof. Proof prerequisites etc. Thats why the first option uses the actual name of what exactly we are writing for the proof. It will go like this
 %% Proof idea: \pf{Proof Idea}{content..}
 %% Proof Overview: \pf{Proof Overview}{content..}
 %% Proof : \pf{Proof}{content..}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% UTILITY COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\nt}[1]{\begin{note}#1\end{note}}
 
@@ -617,11 +808,8 @@
 	{??}
 	{\the\value{#1}}%
 }
-\newcommand{\getCurrentSectionNumber}{\getcurrentref{section}}
 
-
-
-
+\newcounter{mylabelcounter}
 
 \makeatletter
 \newcommand{\setword}[2]{%
@@ -629,9 +817,6 @@
 	#1\def\@currentlabel{\unexpanded{#1}}\label{#2}%
 }
 \makeatother
-
-
-
 
 \tikzset{
 	symbol/.style={
@@ -641,260 +826,73 @@
 	}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE FORMATS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The article class has no \chapter, so the fancy display chapter title
+% format from the report preamble is dropped. The section format below is
+% the top-level heading style for this document.
+\titleformat{\section}
+	{\normalfont\Large\bfseries}
+	{\S\hspace{0.25em}\thesection}
+	{1em}
+	{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TABLE OF CONTENTS 1
+% TABLE OF CONTENTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\usepackage{framed}
-%\usepackage{titletoc}
-%\usepackage{etoolbox}
-%\usepackage{lmodern}
-
-
-%\patchcmd{\tableofcontents}{\contentsname}{\sffamily\contentsname}{}{}
-
-%\renewenvironment{leftbar}
-%{\def\FrameCommand{\hspace{6em}%
-		%		{\color{myyellow}\vrule width 2pt depth 6pt}\hspace{1em}}%
-	%	\MakeFramed{\parshape 1 0cm \dimexpr\textwidth-6em\relax\FrameRestore}\vskip2pt%
-	%}
-%{\endMakeFramed}
-
-%\titlecontents{chapter}
-%[0em]{\vspace*{2\baselineskip}}
-%{\parbox{4.5em}{%
-		%		\hfill\Huge\sffamily\bfseries\color{myred}\thecontentspage}%
-	%	\vspace*{-2.3\baselineskip}\leftbar\textsc{\small\chaptername~\thecontentslabel}\\\sffamily}
-%{}{\endleftbar}
-%\titlecontents{section}
-%[8.4em]
-%{\sffamily\contentslabel{3em}}{}{}
-%{\hspace{0.5em}\nobreak\itshape\color{myred}\contentspage}
-%\titlecontents{subsection}
-%[8.4em]
-%{\sffamily\contentslabel{3em}}{}{}  
-%{\hspace{0.5em}\nobreak\itshape\color{myred}\contentspage}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TABLE OF CONTENTS 2
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\usepackage{tikz}
-\usetikzlibrary{shapes, positioning}
-\usepackage{titletoc}
 \contentsmargin{0cm}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
 \titlecontents{section}[3.7pc]
 {\addvspace{30pt}%
 	\begin{tikzpicture}[remember picture, overlay]%
-		\draw[fill=doc!60,draw=doc!60] (-7,-.1) rectangle (-0.6,.5);%
-		\pgftext[left,x=-3.3cm,y=0.17cm]{\color{white}\Large\sc\bfseries Section\ \thecontentslabel};%
-	\end{tikzpicture}\color{doc!60}\large\sc\bfseries}%
+		\draw[fill=mytoccolor,draw=mytoccolor] (-7,-.1) rectangle (-0.6,.5);%
+		\pgftext[left,x=-3.6cm,y=0.2cm]{\color{white}\Large\sc\bfseries Section\ \thecontentslabel};%
+	\end{tikzpicture}\color{mytoccolor}\large\sc\bfseries}%
 {}
 {}
 {\;\titlerule\;\large\sc\bfseries Page \thecontentspage
 	\begin{tikzpicture}[remember picture, overlay]
-		\draw[fill=doc!60,draw=doc!60] (2pt,0) rectangle (4,0.1pt);
+		\draw[fill=mytoccolor,draw=mytoccolor] (2pt,0) rectangle (4,0.1pt);
 \end{tikzpicture}}%
 \titlecontents{subsection}[3.7pc]
 {\addvspace{2pt}}
-{\contentslabel[\thecontentslabel]{2pc}}
+{\contentslabel[\textcolor{mytoccolor}{\thecontentslabel}]{2pc}}
 {}
-{\hfill\small \thecontentspage}
+{\hfill\small \textcolor{mytoccolor}{\thecontentspage}}
 []
 \titlecontents{subsubsection}[3.7pc]
 {\addvspace{-1pt}\small}
-{\hspace*{2pc}\contentslabel[\thecontentslabel]{2pc}}
+{\hspace*{2pc}\contentslabel[\textcolor{mytoccolor}{\thecontentslabel}]{2pc}}
 {}
-{\hfill\small \thecontentspage}
+{\hfill\small \textcolor{mytoccolor}{\thecontentspage}}
 []
 
+%{\addvspace{-1pt}\small}
+%{}
+%{}
+%{\ --- \small\thecontentspage}
+%[ \textbullet\ ][]
 
 \makeatletter
 \renewcommand{\tableofcontents}{%
 	\section*{%
 		\vspace*{-20\p@}%
 		\begin{tikzpicture}[remember picture, overlay]%
-			\pgftext[right,x=15cm,y=0.2cm]{\color{doc!60}\Huge\sc\bfseries \contentsname};%
-			\draw[fill=doc!60,draw=doc!60] (13,-.75) rectangle (20,1);%
+			\pgftext[right,x=15cm,y=0.2cm]{\color{mytoccolor}\Huge\sc\bfseries \contentsname};%
+			\draw[fill=mytoccolor,draw=mytoccolor] (13,-.75) rectangle (20,1);%
 			\clip (13,-.75) rectangle (20,1);
 			\pgftext[right,x=15cm,y=0.2cm]{\color{white}\Huge\sc\bfseries \contentsname};%
 	\end{tikzpicture}}%
-	\vspace*{5mm}
 	\@starttoc{toc}}
 \makeatother
-%
-%
-%	
-%\newcommand\colorlink[3]{\href{#2}{\color{#1}#3}}
-%\newcommand\colorurl[2]{{\color{#1}\url{#2}}}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Title Page 1
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\newcommand{\mytitlea}[4]{
-%	\begin{tikzpicture}[remember picture,overlay]
-%		%%%%%%%%%%%%%%%%%%%% Background %%%%%%%%%%%%%%%%%%%%%%%%
-%		\fill[orange] (current page.south west) rectangle (current page.north east);
-%		
-%		
-%		
-%		
-%		%%%%%%%%%%%%%%%%%%%% Background Polygon %%%%%%%%%%%%%%%%%%%%
-%		
-%		\foreach \i in {2.5,...,22}
-%		{
-%			\node[rounded corners,orange!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.west)+(2.5,-5)$) {} ;
-%		}
-%		
-%		\foreach \i in {0.5,...,22}
-%		{
-%			\node[rounded corners,orange!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north west)+(2.5,0)$) {} ;
-%		}
-%		
-%		\foreach \i in {0.5,...,22}
-%		{
-%			\node[rounded corners,orange!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north east)+(0,-9.5)$) {} ;
-%		}
-%		
-%		
-%		\foreach \i in {21,...,6}
-%		{
-%			\node[orange!85,rounded corners,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;
-%		}
-%		
-%		
-%		%%%%%%%%%%%%%%%%%%%% Title of the Report %%%%%%%%%%%%%%%%%%%% 
-%		\node[left,black,minimum width=0.625*\paperwidth,minimum height=3cm, rounded corners] at ($(current page.north east)+(0,-9.5)$)
-%		{
-%			{\fontsize{25}{30} \selectfont \bfseries #1}
-%		};
-%		
-%		%%%%%%%%%%%%%%%%%%%% Subtitle %%%%%%%%%%%%%%%%%%%% 
-%		\node[left,black,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-11)$)
-%		{
-%			{\huge \textit{#2}}
-%		};
-%		
-%		%%%%%%%%%%%%%%%%%%%% Author Name %%%%%%%%%%%%%%%%%%%% 
-%		\node[left,black,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-13)$)
-%		{
-%			{\Large \textsc{#3}}
-%		};
-%		
-%		%%%%%%%%%%%%%%%%%%%% Year %%%%%%%%%%%%%%%%%%%% 
-%		\node[rounded corners,fill=orange!70,text =black,regular polygon,regular polygon sides=6, minimum size=2.5 cm,inner sep=0,ultra thick] at ($(current page.west)+(2.5,-5)$) {\LARGE \bfseries #4};
-%		
-%	\end{tikzpicture}
-%}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Title Page 2
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\newcommand{\mytitleb}[4]{\begin{tikzpicture}[overlay,remember picture]
-%		
-%		% Background color
-%		\fill[
-%		black!2]
-%		(current page.south west) rectangle (current page.north east);
-%		
-%		% Rectangles
-%		\shade[
-%		left color=Dandelion, 
-%		right color=Dandelion!40,
-%		transform canvas ={rotate around ={45:($(current page.north west)+(0,-6)$)}}] 
-%		($(current page.north west)+(0,-6)$) rectangle ++(9,1.5);
-%		
-%		\shade[
-%		left color=lightgray,
-%		right color=lightgray!50,
-%		rounded corners=0.75cm,
-%		transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}]
-%		($(current page.north west)+(0.5,-10)$) rectangle ++(15,1.5);
-%		
-%		\shade[
-%		left color=lightgray,
-%		rounded corners=0.3cm,
-%		transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}] ($(current page.north west)+(1.5,-9.55)$) rectangle ++(7,.6);
-%		
-%		\shade[
-%		left color=orange!80,
-%		right color=orange!60,
-%		rounded corners=0.4cm,
-%		transform canvas ={rotate around ={45:($(current page.north)+(-1.5,-3)$)}}]
-%		($(current page.north)+(-1.5,-3)$) rectangle ++(9,0.8);
-%		
-%		\shade[
-%		left color=red!80,
-%		right color=red!80,
-%		rounded corners=0.9cm,
-%		transform canvas ={rotate around ={45:($(current page.north)+(-3,-8)$)}}] ($(current page.north)+(-3,-8)$) rectangle ++(15,1.8);
-%		
-%		\shade[
-%		left color=orange,
-%		right color=Dandelion,
-%		rounded corners=0.9cm,
-%		transform canvas ={rotate around ={45:($(current page.north west)+(4,-15.5)$)}}]
-%		($(current page.north west)+(4,-15.5)$) rectangle ++(30,1.8);
-%		
-%		\shade[
-%		left color=RoyalBlue,
-%		right color=Emerald,
-%		rounded corners=0.75cm,
-%		transform canvas ={rotate around ={45:($(current page.north west)+(13,-10)$)}}]
-%		($(current page.north west)+(13,-10)$) rectangle ++(15,1.5);
-%		
-%		\shade[
-%		left color=lightgray,
-%		rounded corners=0.3cm,
-%		transform canvas ={rotate around ={45:($(current page.north west)+(18,-8)$)}}]
-%		($(current page.north west)+(18,-8)$) rectangle ++(15,0.6);
-%		
-%		\shade[
-%		left color=lightgray,
-%		rounded corners=0.4cm,
-%		transform canvas ={rotate around ={45:($(current page.north west)+(19,-5.65)$)}}]
-%		($(current page.north west)+(19,-5.65)$) rectangle ++(15,0.8);
-%		
-%		\shade[
-%		left color=OrangeRed,
-%		right color=red!80,
-%		rounded corners=0.6cm,
-%		transform canvas ={rotate around ={45:($(current page.north west)+(20,-9)$)}}] 
-%		($(current page.north west)+(20,-9)$) rectangle ++(14,1.2);
-%		
-%		% Year
-%		\draw[ultra thick,gray]
-%		($(current page.center)+(5,2)$) -- ++(0,-3cm) 
-%		node[
-%		midway,
-%		left=0.25cm,
-%		text width=5cm,
-%		align=right,
-%		black!75
-%		]
-%		{
-%			{\fontsize{25}{30} \selectfont \bf  Lecture\\[10pt] Notes}
-%		} 
-%		node[
-%		midway,
-%		right=0.25cm,
-%		text width=6cm,
-%		align=left,
-%		orange]
-%		{
-%			{\fontsize{72}{86.4} \selectfont #4}
-%		};
-%		
-%		% Title
-%		\node[align=center] at ($(current page.center)+(0,-5)$) 
-%		{
-%			{\fontsize{60}{72} \selectfont {{#1}}} \\[1cm]
-%			{\fontsize{16}{19.2} \selectfont \textcolor{orange}{ \bf #2}}\\[3pt]
-%			#3};
-%	\end{tikzpicture}
-%}
+
+%================================
+% HYPERLINK HELPERS
+%================================
+
+\newcommand\colorlink[3]{\href{#2}{\color{#1}#3}}
+\newcommand\colorurl[2]{{\color{#1}\url{#2}}}
